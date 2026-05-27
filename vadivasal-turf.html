@@ -1410,8 +1410,18 @@
       body, a, button, input, select, .feature-box, .sport-card, .price-card, .testi-card, .hamburger, .sport-book-btn, .price-btn, .hero-cta, .whatsapp-btn, .map-find-btn, .btn-submit, .success-close { cursor: auto !important; }
       #cursor { display: none !important; }
       
+      /* Center Navbar Brand */
+      #navbar { align-items: center; position: relative; }
+      .hamburger { display: flex; margin-left: auto; z-index: 2; position: relative; }
+      .sf-brand { 
+        position: absolute; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        align-items: center; 
+      }
+      .sf-brand-bottom { padding-left: 0; }
+      
       .nav-links { display: none; }
-      .hamburger { display: flex; }
       .hero-title { font-size: clamp(2.5rem, 10vw, 5rem); }
       
       /* Reduced Section Paddings */
@@ -2011,12 +2021,15 @@
   const preloader = document.getElementById('preloader');
   const preloaderBar = document.getElementById('preloaderBar');
   const preloaderText = document.getElementById('preloaderText');
+  
+  // ── GSAP & ScrollTrigger ──
+  gsap.registerPlugin(ScrollTrigger);
+  const isMobile = window.innerWidth <= 768;
 
   function playHeroAnimations() {
     gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
     gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
 
-    // Initialize parallax after loading completes so it captures the clear, unblurred state
     gsap.to('#heroBg', {
       scrollTrigger: {
         trigger: '#hero',
@@ -2129,170 +2142,162 @@
   // ── SF HERO ANIMATIONS ──
   // Hero animations are now handled by playHeroAnimations() in the preloader logic
 
-  // ── MARQUEE SECTION ──
-  gsap.from('.marquee-section', {
-    scrollTrigger: { trigger: '.marquee-section', start: 'top 95%' },
-    opacity: 0, duration: 1, ease: 'power2.out'
-  });
+  // ── SCROLL ANIMATIONS (DESKTOP ONLY) ──
+  if (!isMobile) {
+    // ── MARQUEE SECTION ──
+    gsap.from('.marquee-section', {
+      scrollTrigger: { trigger: '.marquee-section', start: 'top 95%' },
+      opacity: 0, duration: 1, ease: 'power2.out'
+    });
 
-  // ── ABOUT SECTION ──
-  // Section label slide
-  gsap.from('#about .section-label', {
-    scrollTrigger: { trigger: '#about', start: 'top 82%' },
-    x: -40, opacity: 0, duration: 0.9, ease: 'power3.out'
-  });
-  // Big heading word-by-word
-  gsap.from('#about h2', {
-    scrollTrigger: { trigger: '#about', start: 'top 78%' },
-    y: 60, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#aboutLeft', {
-    scrollTrigger: { trigger: '#about', start: 'top 78%' },
-    x: -80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.05
-  });
-  gsap.from('#aboutRight p', {
-    scrollTrigger: { trigger: '#about', start: 'top 75%' },
-    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3
-  });
-  // Features: fan out from bottom
-  gsap.from('#featuresGrid .feature-box', {
-    scrollTrigger: { trigger: '#featuresGrid', start: 'top 85%' },
-    y: 80, opacity: 0, scale: 0.9, duration: 0.9,
-    stagger: 0.15, ease: 'back.out(1.4)'
-  });
+    // ── ABOUT SECTION ──
+    gsap.from('#about .section-label', {
+      scrollTrigger: { trigger: '#about', start: 'top 82%' },
+      x: -40, opacity: 0, duration: 0.9, ease: 'power3.out'
+    });
+    gsap.from('#about h2', {
+      scrollTrigger: { trigger: '#about', start: 'top 78%' },
+      y: 60, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#aboutLeft', {
+      scrollTrigger: { trigger: '#about', start: 'top 78%' },
+      x: -80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.05
+    });
+    gsap.from('#aboutRight p', {
+      scrollTrigger: { trigger: '#about', start: 'top 75%' },
+      y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3
+    });
+    gsap.from('#featuresGrid .feature-box', {
+      scrollTrigger: { trigger: '#featuresGrid', start: 'top 85%' },
+      y: 80, opacity: 0, scale: 0.9, duration: 0.9,
+      stagger: 0.15, ease: 'back.out(1.4)'
+    });
 
-  // ── SPORTS SECTION ──
-  gsap.from('#sports .section-label', {
-    scrollTrigger: { trigger: '#sports', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#sports h2', {
-    scrollTrigger: { trigger: '#sports', start: 'top 80%' },
-    clipPath: 'inset(100% 0 0 0)',
-    y: 40, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.1
-  });
-  // Cards slide in from alternating sides
-  gsap.from('#sportsGrid .sport-card:nth-child(odd)', {
-    scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
-    x: -100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
-  });
-  gsap.from('#sportsGrid .sport-card:nth-child(even)', {
-    scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
-    x: 100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
-  });
+    // ── SPORTS SECTION ──
+    gsap.from('#sports .section-label', {
+      scrollTrigger: { trigger: '#sports', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#sports h2', {
+      scrollTrigger: { trigger: '#sports', start: 'top 80%' },
+      clipPath: 'inset(100% 0 0 0)',
+      y: 40, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#sportsGrid .sport-card:nth-child(odd)', {
+      scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
+      x: -100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
+    });
+    gsap.from('#sportsGrid .sport-card:nth-child(even)', {
+      scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
+      x: 100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
+    });
 
-  // ── BOOKING SECTION ──
-  gsap.from('#booking .section-label', {
-    scrollTrigger: { trigger: '#booking', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#booking h2', {
-    scrollTrigger: { trigger: '#booking', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#bookingForm', {
-    scrollTrigger: { trigger: '#bookingForm', start: 'top 85%' },
-    y: 80, opacity: 0, scale: 0.97, duration: 1.2, ease: 'power3.out', delay: 0.2
-  });
-  gsap.from('#bookingForm .form-group', {
-    scrollTrigger: { trigger: '#bookingForm', start: 'top 82%' },
-    y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.4
-  });
+    // ── BOOKING SECTION ──
+    gsap.from('#booking .section-label', {
+      scrollTrigger: { trigger: '#booking', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#booking h2', {
+      scrollTrigger: { trigger: '#booking', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#bookingForm', {
+      scrollTrigger: { trigger: '#bookingForm', start: 'top 85%' },
+      y: 80, opacity: 0, scale: 0.97, duration: 1.2, ease: 'power3.out', delay: 0.2
+    });
+    gsap.from('#bookingForm .form-group', {
+      scrollTrigger: { trigger: '#bookingForm', start: 'top 82%' },
+      y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.4
+    });
 
-  // ── PRICING SECTION ──
-  gsap.from('#pricing .section-label', {
-    scrollTrigger: { trigger: '#pricing', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#pricing h2', {
-    scrollTrigger: { trigger: '#pricing', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#pricingGrid .price-card', {
-    scrollTrigger: { trigger: '#pricingGrid', start: 'top 82%' },
-    y: 100, opacity: 0, scale: 0.92, duration: 1,
-    stagger: 0.18, ease: 'back.out(1.2)'
-  });
+    // ── PRICING SECTION ──
+    gsap.from('#pricing .section-label', {
+      scrollTrigger: { trigger: '#pricing', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#pricing h2', {
+      scrollTrigger: { trigger: '#pricing', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#pricingGrid .price-card', {
+      scrollTrigger: { trigger: '#pricingGrid', start: 'top 82%' },
+      y: 100, opacity: 0, scale: 0.92, duration: 1,
+      stagger: 0.18, ease: 'back.out(1.2)'
+    });
 
-  // ── STATS COUNTER ──
-  function animateCounter(el, target, suffix='') {
-    gsap.to({ val: 0 }, {
-      val: target,
-      duration: 2.2,
-      ease: 'power2.out',
-      onUpdate: function() {
-        el.textContent = Math.round(this.targets()[0].val).toLocaleString() + suffix;
+    // ── STATS SECTION ──
+    ScrollTrigger.create({
+      trigger: '#stats',
+      start: 'top 75%',
+      once: true,
+      onEnter: () => {
+        animateCounter(document.getElementById('stat1'), 500, '+');
+        animateCounter(document.getElementById('stat2'), 1000, '+');
+        animateCounter(document.getElementById('stat3'), 3);
       }
     });
+
+    gsap.from('#statsGrid .stat-item', {
+      scrollTrigger: { trigger: '#stats', start: 'top 80%' },
+      y: 60, opacity: 0, scale: 0.85, duration: 1,
+      stagger: 0.15, ease: 'back.out(1.5)'
+    });
+
+    gsap.to('#stats', {
+      scrollTrigger: {
+        trigger: '#stats',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      },
+      backgroundPositionY: '30%',
+      ease: 'none'
+    });
+
+    // ── TESTIMONIALS ──
+    gsap.from('#testimonials .section-label', {
+      scrollTrigger: { trigger: '#testimonials', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#testimonials h2', {
+      scrollTrigger: { trigger: '#testimonials', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#testiGrid .testi-card', {
+      scrollTrigger: { trigger: '#testiGrid', start: 'top 82%' },
+      y: 70, opacity: 0, scale: 0.93, duration: 1,
+      stagger: 0.2, ease: 'back.out(1.3)'
+    });
+
+    // ── CONTACT SECTION ──
+    gsap.from('#contact .section-label', {
+      scrollTrigger: { trigger: '#contact', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#contactLeft', {
+      scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+      x: -80, opacity: 0, duration: 1.3, ease: 'power3.out'
+    });
+    gsap.from('#contactRight', {
+      scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+      x: 80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.15
+    });
+    gsap.from('.contact-map', {
+      scrollTrigger: { trigger: '.contact-map', start: 'top 85%' },
+      scale: 0.95, opacity: 0, duration: 1.2, ease: 'power3.out'
+    });
+
+    // ── FOOTER ──
+    gsap.from('footer .footer-col', {
+      scrollTrigger: { trigger: 'footer', start: 'top 90%' },
+      y: 50, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out'
+    });
+  } else {
+    // Mobile fallback for stat counters
+    document.getElementById('stat1').textContent = '500+';
+    document.getElementById('stat2').textContent = '1000+';
+    document.getElementById('stat3').textContent = '3';
   }
-
-  ScrollTrigger.create({
-    trigger: '#stats',
-    start: 'top 75%',
-    once: true,
-    onEnter: () => {
-      animateCounter(document.getElementById('stat1'), 500, '+');
-      animateCounter(document.getElementById('stat2'), 1000, '+');
-      animateCounter(document.getElementById('stat3'), 3);
-    }
-  });
-
-  gsap.from('#statsGrid .stat-item', {
-    scrollTrigger: { trigger: '#stats', start: 'top 80%' },
-    y: 60, opacity: 0, scale: 0.85, duration: 1,
-    stagger: 0.15, ease: 'back.out(1.5)'
-  });
-
-  // Stats section background parallax
-  gsap.to('#stats', {
-    scrollTrigger: {
-      trigger: '#stats',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    },
-    backgroundPositionY: '30%',
-    ease: 'none'
-  });
-
-  // ── TESTIMONIALS ──
-  gsap.from('#testimonials .section-label', {
-    scrollTrigger: { trigger: '#testimonials', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#testimonials h2', {
-    scrollTrigger: { trigger: '#testimonials', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#testiGrid .testi-card', {
-    scrollTrigger: { trigger: '#testiGrid', start: 'top 82%' },
-    y: 70, opacity: 0, scale: 0.93, duration: 1,
-    stagger: 0.2, ease: 'back.out(1.3)'
-  });
-
-  // ── CONTACT SECTION ──
-  gsap.from('#contact .section-label', {
-    scrollTrigger: { trigger: '#contact', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#contactLeft', {
-    scrollTrigger: { trigger: '#contact', start: 'top 80%' },
-    x: -80, opacity: 0, duration: 1.3, ease: 'power3.out'
-  });
-  gsap.from('#contactRight', {
-    scrollTrigger: { trigger: '#contact', start: 'top 80%' },
-    x: 80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.15
-  });
-  gsap.from('.contact-map', {
-    scrollTrigger: { trigger: '.contact-map', start: 'top 85%' },
-    scale: 0.95, opacity: 0, duration: 1.2, ease: 'power3.out'
-  });
-
-  // ── FOOTER ──
-  gsap.from('footer .footer-col', {
-    scrollTrigger: { trigger: 'footer', start: 'top 90%' },
-    y: 50, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out'
-  });
 
   // ── BOOKING FORM LOGIC ──
   // Set min date to today
