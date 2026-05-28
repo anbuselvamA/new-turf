@@ -1965,16 +1965,15 @@
       // Calculate clip path for column i
       let startX = (i / sliceCount) * 100;
       let endX = ((i + 1) / sliceCount) * 100;
-      // We add a tiny overlap (0.1%) to prevent 1px gaps between slices
       slice.style.clipPath = `polygon(${startX}% 0%, ${endX + 0.1}% 0%, ${endX + 0.1}% 100%, ${startX}% 100%)`;
-      slice.style.zIndex = 1; // Same level as heroBg
+      slice.style.zIndex = 1; 
       slice.style.opacity = 1;
       
       heroSection.insertBefore(slice, document.getElementById('heroBg').nextSibling);
       slices.push(slice);
     }
 
-    // Hide hero content temporarily so it doesn't overlap the falling pieces awkwardly
+    // Hide hero content temporarily
     gsap.set('.hero-content', { opacity: 0 });
     gsap.set('.sf-brand', { opacity: 0 });
     gsap.set('.nav-trigger', { opacity: 0 });
@@ -1987,11 +1986,9 @@
       stagger: 0.15,
       ease: 'bounce.out',
       onComplete: () => {
-        // Show real BG and cleanup slices
         gsap.set('#heroBg', { opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' });
         slices.forEach(s => s.remove());
         
-        // Reveal hero content
         gsap.to('.hero-content', { opacity: 1, duration: 0.5 });
         
         sessionStorage.setItem('hasVisited', 'true');
@@ -1999,59 +1996,6 @@
       }
     });
   }
-
-  // ── GSAP & ScrollTrigger ──
-  gsap.registerPlugin(ScrollTrigger);
-  const isMobile = window.innerWidth <= 768;
-
-  function playHeroAnimations() {
-    if (isMobile) {
-      document.querySelector('.sf-brand').style.opacity = '1';
-      document.querySelector('.nav-trigger').style.opacity = '1';
-    } else {
-      gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-      gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-    }
-
-    gsap.to('#heroBg', {
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      },
-      scale: 1.15,
-      filter: 'brightness(0.6) blur(0px)',
-      ease: 'none'
-    });
-  }
-
-  if (sessionStorage.getItem('hasVisited')) {
-    preloader.style.display = 'none';
-    gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
-    playHeroAnimations();
-  } else {
-        setTimeout(() => {
-          preloader.style.background = 'transparent';
-          preloader.classList.add('hidden');
-          
-          // Turf becomes bright and sharp, zooming out slightly like drone arriving
-          gsap.to('#heroBg', {
-            scale: 1,
-            filter: 'brightness(1) blur(0px)',
-            duration: 3.5,
-            ease: 'power2.inOut',
-            onComplete: () => {
-              sessionStorage.setItem('hasVisited', 'true');
-              playHeroAnimations();
-            }
-          });
-        }, 500);
-      }
-    }, 40);
-  }
-  // ── GSAP & ScrollTrigger ──
-  gsap.registerPlugin(ScrollTrigger);
 
   // ── CUSTOM CURSOR ──
   const cursor = document.getElementById('cursor');
