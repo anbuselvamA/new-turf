@@ -32,7 +32,7 @@
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100%; }
 
     body {
       background: var(--dark);
@@ -40,6 +40,7 @@
       font-family: var(--font-sans);
       font-weight: 300;
       overflow-x: hidden;
+      max-width: 100%;
       cursor: auto;
     }
 
@@ -87,7 +88,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
       transition: background 0.6s ease, padding 0.4s ease;
       background: transparent;
       border: none;
@@ -2000,8 +2000,13 @@
   const isMobile = window.innerWidth <= 768;
 
   function playHeroAnimations() {
-    gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-    gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+    if (isMobile) {
+      document.querySelector('.sf-brand').style.opacity = '1';
+      document.querySelector('.nav-trigger').style.opacity = '1';
+    } else {
+      gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+    }
 
     gsap.to('#heroBg', {
       scrollTrigger: {
