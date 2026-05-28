@@ -1951,62 +1951,86 @@
     gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
     playHeroAnimations();
   } else {
-    // Cinematic Universe Reveal Animation
-    preloader.style.display = 'none'; 
-    
-    // Initial state of hero background (zoomed in, slightly blurred)
-    gsap.set('#heroBg', { scale: 1.4, filter: 'brightness(0.2) blur(10px)', opacity: 1 });
-    
-    // Hide hero content initially
-    gsap.set('.hero-content', { opacity: 0, filter: 'blur(10px)', scale: 1.1 });
-    gsap.set('.sf-brand', { opacity: 0 });
-    gsap.set('.nav-trigger', { opacity: 0 });
+    // 1. Show normal preloader, hide real BG
+    gsap.set('#heroBg', { opacity: 0 });
 
-    const heroSection = document.getElementById('hero');
-    
-    // Create cinematic black bars
-    const topBar = document.createElement('div');
-    const bottomBar = document.createElement('div');
-    const lightSlit = document.createElement('div');
-    
-    topBar.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
-    bottomBar.style.cssText = 'position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
-    
-    // The glowing slit
-    lightSlit.style.cssText = 'position: absolute; top: 50%; left: 50%; width: 0%; height: 2px; background: rgba(201,168,76,0.8); box-shadow: 0 0 20px rgba(201,168,76,0.8), 0 0 40px rgba(201,168,76,0.4); transform: translate(-50%, -50%); z-index: 51;';
-    
-    heroSection.appendChild(topBar);
-    heroSection.appendChild(bottomBar);
-    heroSection.appendChild(lightSlit);
+    let pct = 0;
+    const loadingInterval = setInterval(() => {
+      pct += Math.floor(Math.random() * 12) + 4;
+      if (pct > 100) pct = 100;
+      preloaderBar.style.width = pct + '%';
+      preloaderText.textContent = pct + '%';
+      
+      if (pct >= 100) {
+        clearInterval(loadingInterval);
+        
+        // Fade out preloader text and logo
+        gsap.to('.preloader-brand, .preloader-progress-container', { opacity: 0, duration: 0.5 });
+        
+        setTimeout(() => {
+          preloader.style.background = 'transparent';
+          preloader.classList.add('hidden');
+          preloader.style.display = 'none';
+          
+          // 2. Cinematic Universe Reveal Animation
+          
+          // Initial state of hero background (zoomed in, slightly blurred)
+          gsap.set('#heroBg', { scale: 1.4, filter: 'brightness(0.2) blur(10px)', opacity: 1 });
+          
+          // Hide hero content initially
+          gsap.set('.hero-content', { opacity: 0, filter: 'blur(10px)', scale: 1.1 });
+          gsap.set('.sf-brand', { opacity: 0 });
+          gsap.set('.nav-trigger', { opacity: 0 });
 
-    // Master Timeline for Cinematic Reveal
-    const tl = gsap.timeline({
-      onComplete: () => {
-        topBar.remove();
-        bottomBar.remove();
-        lightSlit.remove();
-        sessionStorage.setItem('hasVisited', 'true');
-        playHeroAnimations();
+          const heroSection = document.getElementById('hero');
+          
+          // Create cinematic black bars
+          const topBar = document.createElement('div');
+          const bottomBar = document.createElement('div');
+          const lightSlit = document.createElement('div');
+          
+          topBar.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
+          bottomBar.style.cssText = 'position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
+          
+          // The glowing slit
+          lightSlit.style.cssText = 'position: absolute; top: 50%; left: 50%; width: 0%; height: 2px; background: rgba(201,168,76,0.8); box-shadow: 0 0 20px rgba(201,168,76,0.8), 0 0 40px rgba(201,168,76,0.4); transform: translate(-50%, -50%); z-index: 51;';
+          
+          heroSection.appendChild(topBar);
+          heroSection.appendChild(bottomBar);
+          heroSection.appendChild(lightSlit);
+
+          // Master Timeline for Cinematic Reveal
+          const tl = gsap.timeline({
+            onComplete: () => {
+              topBar.remove();
+              bottomBar.remove();
+              lightSlit.remove();
+              sessionStorage.setItem('hasVisited', 'true');
+              playHeroAnimations();
+            }
+          });
+          
+          // Step 1: Delay briefly for dramatic tension
+          tl.to({}, { duration: 0.5 })
+            
+            // Step 2: Slit expands horizontally
+            .to(lightSlit, { width: '100%', duration: 1.5, ease: 'power4.inOut' })
+            
+            // Step 3: Slit gets brighter
+            .to(lightSlit, { height: '6px', background: '#fff', duration: 0.3, ease: 'power2.out' }, "-=0.2")
+            
+            // Step 4: BOOM! Black bars open up, slit disappears, turf zooms out slowly
+            .to(lightSlit, { opacity: 0, duration: 0.1 })
+            .to(topBar, { top: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
+            .to(bottomBar, { bottom: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
+            .to('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)', duration: 4, ease: 'power2.out' }, "reveal")
+            
+            // Step 5: Title fades in with blur effect
+            .to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 2, ease: 'power2.out' }, "reveal+=1.5");
+
+        }, 500);
       }
-    });
-    
-    // Step 1: Delay briefly for dramatic tension
-    tl.to({}, { duration: 0.5 })
-      
-      // Step 2: Slit expands horizontally
-      .to(lightSlit, { width: '100%', duration: 1.5, ease: 'power4.inOut' })
-      
-      // Step 3: Slit gets brighter
-      .to(lightSlit, { height: '6px', background: '#fff', duration: 0.3, ease: 'power2.out' }, "-=0.2")
-      
-      // Step 4: BOOM! Black bars open up, slit disappears, turf zooms out slowly
-      .to(lightSlit, { opacity: 0, duration: 0.1 })
-      .to(topBar, { top: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
-      .to(bottomBar, { bottom: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
-      .to('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)', duration: 4, ease: 'power2.out' }, "reveal")
-      
-      // Step 5: Title fades in with blur effect
-      .to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 2, ease: 'power2.out' }, "reveal+=1.5");
+    }, 150);
   }
 
   // ── CUSTOM CURSOR ──
