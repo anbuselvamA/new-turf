@@ -1949,52 +1949,76 @@
     gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
     playHeroAnimations();
   } else {
-    // Puzzle Slice Assembly Animation
-    preloader.style.display = 'none'; // Hide normal preloader
-    gsap.set('#heroBg', { opacity: 0 }); // Hide real BG initially
+    // 1. Show normal preloader, hide real BG
+    gsap.set('#heroBg', { opacity: 0 });
 
-    const sliceCount = 8;
-    const heroSection = document.getElementById('hero');
-    const slices = [];
-
-    // Create slices
-    for (let i = 0; i < sliceCount; i++) {
-      let slice = document.createElement('div');
-      slice.className = 'sf-hero-bg';
+    let pct = 0;
+    const loadingInterval = setInterval(() => {
+      pct += Math.floor(Math.random() * 12) + 4;
+      if (pct > 100) pct = 100;
+      preloaderBar.style.width = pct + '%';
+      preloaderText.textContent = pct + '%';
       
-      // Calculate clip path for column i
-      let startX = (i / sliceCount) * 100;
-      let endX = ((i + 1) / sliceCount) * 100;
-      slice.style.clipPath = `polygon(${startX}% 0%, ${endX + 0.1}% 0%, ${endX + 0.1}% 100%, ${startX}% 100%)`;
-      slice.style.zIndex = 1; 
-      slice.style.opacity = 1;
-      
-      heroSection.insertBefore(slice, document.getElementById('heroBg').nextSibling);
-      slices.push(slice);
-    }
-
-    // Hide hero content temporarily
-    gsap.set('.hero-content', { opacity: 0 });
-    gsap.set('.sf-brand', { opacity: 0 });
-    gsap.set('.nav-trigger', { opacity: 0 });
-
-    // Animate slices falling down
-    gsap.from(slices, {
-      y: -window.innerHeight * 1.5,
-      opacity: 0,
-      duration: 1.8,
-      stagger: 0.15,
-      ease: 'bounce.out',
-      onComplete: () => {
-        gsap.set('#heroBg', { opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' });
-        slices.forEach(s => s.remove());
+      if (pct >= 100) {
+        clearInterval(loadingInterval);
         
-        gsap.to('.hero-content', { opacity: 1, duration: 0.5 });
+        // Fade out preloader text and logo
+        gsap.to('.preloader-brand, .preloader-progress-container', { opacity: 0, duration: 0.5 });
         
-        sessionStorage.setItem('hasVisited', 'true');
-        playHeroAnimations();
+        setTimeout(() => {
+          preloader.style.background = 'transparent';
+          preloader.classList.add('hidden');
+          
+          // 2. Start Puzzle Slice Assembly Animation
+          const sliceCount = 8;
+          const heroSection = document.getElementById('hero');
+          const slices = [];
+
+          // Create slices
+          for (let i = 0; i < sliceCount; i++) {
+            let slice = document.createElement('div');
+            slice.className = 'sf-hero-bg';
+            
+            let startX = (i / sliceCount) * 100;
+            let endX = ((i + 1) / sliceCount) * 100;
+            slice.style.clipPath = `polygon(${startX}% 0%, ${endX + 0.1}% 0%, ${endX + 0.1}% 100%, ${startX}% 100%)`;
+            slice.style.zIndex = 1; 
+            slice.style.opacity = 1;
+            
+            heroSection.insertBefore(slice, document.getElementById('heroBg').nextSibling);
+            slices.push(slice);
+          }
+
+          // Hide hero content temporarily
+          gsap.set('.hero-content', { opacity: 0 });
+          gsap.set('.sf-brand', { opacity: 0 });
+          gsap.set('.nav-trigger', { opacity: 0 });
+
+          // Animate slices falling down
+          gsap.from(slices, {
+            y: -window.innerHeight * 1.5,
+            opacity: 0,
+            duration: 1.8,
+            stagger: 0.15,
+            ease: 'bounce.out',
+            onComplete: () => {
+              // Show real BG and cleanup slices
+              gsap.set('#heroBg', { opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' });
+              slices.forEach(s => s.remove());
+              
+              // Fade out preloader fully just in case
+              preloader.style.display = 'none';
+
+              // Reveal hero content
+              gsap.to('.hero-content', { opacity: 1, duration: 0.5 });
+              
+              sessionStorage.setItem('hasVisited', 'true');
+              playHeroAnimations();
+            }
+          });
+        }, 500);
       }
-    });
+    }, 150);
   }
 
   // ── CUSTOM CURSOR ──
