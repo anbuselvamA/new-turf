@@ -1473,13 +1473,13 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
   <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#sports">Sports</a></li>
-    <li><a href="#booking">Booking</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+      <li><a href="#about" onclick="toggleNav()">About</a></li>
+      <li><a href="#pricing" onclick="toggleNav()">Pricing</a></li>
+      <li><a href="#sports" onclick="toggleNav()">Sports</a></li>
+      <li><a href="#stats" onclick="toggleNav()">Stats</a></li>
+      <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+      <li><a href="#testimonials" onclick="toggleNav()">Reviews</a></li>
+    </ul>
 </nav>
 
 <!-- ── NAVBAR ── -->
@@ -1569,157 +1569,6 @@
   </div>
 </section>
 
-<!-- ── SPORTS ── -->
-<section id="sports">
-  <div class="sports-header">
-    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-      <div class="section-divider-line"></div>
-      <span class="section-label">Our Courts</span>
-      <div class="section-divider-line"></div>
-    </div>
-    <h2>Choose Your<br/><em style="font-style:italic;color:var(--gold);">Arena</em></h2>
-  </div>
-
-  <div class="sports-grid" id="sportsGrid">
-    <!-- Cricket -->
-    <div class="sport-card sport-card-cricket">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">🏏</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">01 / Cricket</div>
-          <div class="sport-card-name">Cricket</div>
-          <div class="sport-card-detail">Full-length pitch · Batting nets · Floodlit · Up to 22 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Available All Day</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Football -->
-    <div class="sport-card sport-card-football">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">⚽</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">02 / Football</div>
-          <div class="sport-card-name">Football</div>
-          <div class="sport-card-detail">5-a-side · 7-a-side · FIFA turf · Goals included · Scoreboard</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Most Popular</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Volleyball -->
-    <div class="sport-card sport-card-volleyball">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">🏐</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">03 / Volleyball</div>
-          <div class="sport-card-name">Volleyball</div>
-          <div class="sport-card-detail">Regulation net · Sand & turf court · Up to 12 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Great for Teams</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BOOKING FORM ── -->
-<section id="booking">
-  <div class="booking-inner">
-    <div class="booking-header">
-      <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-        <div class="section-divider-line"></div>
-        <span class="section-label">Reserve Your Court</span>
-        <div class="section-divider-line"></div>
-      </div>
-      <h2>Book Your<br/><em style="font-style:italic;color:var(--gold);">Session</em></h2>
-      <p>Secure your slot in under 60 seconds. We'll confirm via WhatsApp.</p>
-    </div>
-
-    <div class="booking-form" id="bookingForm">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Your name" autocomplete="name" />
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="+91 00000 00000" autocomplete="tel" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="you@email.com" autocomplete="email" />
-        </div>
-        <div class="form-group">
-          <label for="sport">Select Sport</label>
-          <div class="select-wrapper">
-            <select id="sport">
-              <option value="" disabled selected>Choose a sport</option>
-              <option value="cricket">Cricket</option>
-              <option value="football">Football (5-a-side)</option>
-              <option value="football7">Football (7-a-side)</option>
-              <option value="volleyball">Volleyball</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="bookDate">Select Date</label>
-          <input type="date" id="bookDate" />
-        </div>
-        <div class="form-group">
-          <label for="timeSlot">Time Slot</label>
-          <div class="select-wrapper">
-            <select id="timeSlot">
-              <option value="" disabled selected>Choose a time</option>
-              <option value="0600">6:00 AM</option>
-              <option value="0800">8:00 AM</option>
-              <option value="1000">10:00 AM</option>
-              <option value="1200">12:00 PM</option>
-              <option value="1400">2:00 PM</option>
-              <option value="1600">4:00 PM</option>
-              <option value="1800">6:00 PM</option>
-              <option value="2000">8:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group full">
-          <label for="players">Number of Players</label>
-          <input type="number" id="players" placeholder="e.g. 10" min="2" max="30" />
-        </div>
-      </div>
-      <div class="form-submit">
-        <button class="btn-submit" id="submitBtn" type="button">
-          <span>Confirm Booking</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Success Popup -->
-<div class="success-popup" id="successPopup">
-  <div class="success-box">
-    <div class="success-icon">✦</div>
-    <h3>Booking Confirmed!</h3>
-    <p>Thank you for choosing Vadivasal Turf. We'll send your confirmation details to your WhatsApp and email shortly. See you on the field!</p>
-    <button class="success-close" id="successClose">Close</button>
-  </div>
-</div>
-
 <!-- ── PRICING ── -->
 <section id="pricing">
   <div class="pricing-header">
@@ -1795,6 +1644,74 @@
   </div>
 </section>
 
+<!-- ── SPORTS ── -->
+<section id="sports">
+  <div class="sports-header">
+    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+      <div class="section-divider-line"></div>
+      <span class="section-label">Our Courts</span>
+      <div class="section-divider-line"></div>
+    </div>
+    <h2>Choose Your<br/><em style="font-style:italic;color:var(--gold);">Arena</em></h2>
+  </div>
+
+  <div class="sports-grid" id="sportsGrid">
+    <!-- Cricket -->
+    <div class="sport-card sport-card-cricket">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">🏏</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">01 / Cricket</div>
+          <div class="sport-card-name">Cricket</div>
+          <div class="sport-card-detail">Full-length pitch · Batting nets · Floodlit · Up to 22 players</div>
+        </div>
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Available All Day</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Football -->
+    <div class="sport-card sport-card-football">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">⚽</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">02 / Football</div>
+          <div class="sport-card-name">Football</div>
+          <div class="sport-card-detail">5-a-side · 7-a-side · FIFA turf · Goals included · Scoreboard</div>
+        </div>
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Most Popular</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volleyball -->
+    <div class="sport-card sport-card-volleyball">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">🏐</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">03 / Volleyball</div>
+          <div class="sport-card-name">Volleyball</div>
+          <div class="sport-card-detail">Regulation net · Sand & turf court · Up to 12 players</div>
+        </div>
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Great for Teams</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── STATS ── -->
 <section id="stats">
   <div class="stats-grid" id="statsGrid">
@@ -1813,62 +1730,6 @@
     <div class="stat-item">
       <div class="stat-number" id="stat4">5★</div>
       <div class="stat-label">Average Rating</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ── -->
-<section id="testimonials">
-  <div class="testi-header">
-    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-      <div class="section-divider-line"></div>
-      <span class="section-label">What Players Say</span>
-      <div class="section-divider-line"></div>
-    </div>
-    <h2>Voices from the<br/><em style="font-style:italic;color:var(--gold);">Field</em></h2>
-  </div>
-
-  <div class="testi-grid" id="testiGrid">
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">Absolutely world-class facility. The turf quality is on par with anything I've seen in Chennai or Bangalore. The floodlighting is exceptional — no shadows, no excuses! We now book every Friday evening.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">AR</div>
-        <div>
-          <div class="testi-name">Arun Rajesh</div>
-          <div class="testi-role">Football Captain · Salem FC</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">We host our corporate cricket league here every month. The booking process is seamless, the staff is incredibly professional, and the changing rooms are spotless. Highly recommended for teams!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">PK</div>
-        <div>
-          <div class="testi-name">Priya Krishnan</div>
-          <div class="testi-role">HR Manager · TechCorp Salem</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">The volleyball court is a dream. Regulation size, perfect surface, and the atmosphere on weekend evenings is electric. Vadivasal has brought something truly special to Salem's sports scene.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">MV</div>
-        <div>
-          <div class="testi-name">Muthu Vel</div>
-          <div class="testi-role">Volleyball Coach · Salem Sports Academy</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1927,6 +1788,62 @@
         </div>
         <div class="map-find-us">
           <a href="https://maps.google.com/?q=Salem,Tamil+Nadu" target="_blank" rel="noopener" class="map-find-btn">Open in Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testi-header">
+    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+      <div class="section-divider-line"></div>
+      <span class="section-label">What Players Say</span>
+      <div class="section-divider-line"></div>
+    </div>
+    <h2>Voices from the<br/><em style="font-style:italic;color:var(--gold);">Field</em></h2>
+  </div>
+
+  <div class="testi-grid" id="testiGrid">
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">Absolutely world-class facility. The turf quality is on par with anything I've seen in Chennai or Bangalore. The floodlighting is exceptional — no shadows, no excuses! We now book every Friday evening.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div>
+          <div class="testi-name">Arun Rajesh</div>
+          <div class="testi-role">Football Captain · Salem FC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">We host our corporate cricket league here every month. The booking process is seamless, the staff is incredibly professional, and the changing rooms are spotless. Highly recommended for teams!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PK</div>
+        <div>
+          <div class="testi-name">Priya Krishnan</div>
+          <div class="testi-role">HR Manager · TechCorp Salem</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">The volleyball court is a dream. Regulation size, perfect surface, and the atmosphere on weekend evenings is electric. Vadivasal has brought something truly special to Salem's sports scene.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MV</div>
+        <div>
+          <div class="testi-name">Muthu Vel</div>
+          <div class="testi-role">Volleyball Coach · Salem Sports Academy</div>
         </div>
       </div>
     </div>
