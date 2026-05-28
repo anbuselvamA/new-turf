@@ -32,7 +32,7 @@
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100%; }
 
     body {
       background: var(--dark);
@@ -40,11 +40,13 @@
       font-family: var(--font-sans);
       font-weight: 300;
       overflow-x: hidden;
-      cursor: none;
+      max-width: 100%;
+      cursor: auto;
     }
 
     /* ── CUSTOM CURSOR ── */
     #cursor {
+      display: none;
       position: fixed;
       width: 12px; height: 12px;
       background: var(--gold);
@@ -82,9 +84,9 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
-      padding: 2.5rem 4%;
+      padding: 1.5rem 4%;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       transition: background 0.6s ease, padding 0.4s ease;
       background: transparent;
@@ -98,8 +100,12 @@
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
-      cursor: none;
+      cursor: auto;
       opacity: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      align-items: center;
     }
     .sf-brand-top {
       font-family: var(--font-serif);
@@ -112,7 +118,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      padding-left: 2px;
+      padding-left: 0;
     }
     .sf-stars {
       font-size: 0.75rem;
@@ -132,7 +138,7 @@
       font-weight: 300;
       letter-spacing: 0.05em;
       color: #fff;
-      cursor: none;
+      cursor: auto;
       transition: color 0.3s;
       opacity: 0;
     }
@@ -196,17 +202,6 @@
       filter: brightness(1) blur(0px);
       transform: scale(1);
     }
-    .sf-hero-leaves {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      background-image: url('./tree_overlay.png');
-      background-size: cover;
-      background-position: center;
-      z-index: 3;
-      pointer-events: none;
-      transform-origin: center center;
-    }
 
     /* Animated orbs */
     .hero-orb {
@@ -264,7 +259,7 @@
 
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(3rem, 8vw, 7rem);
+      font-size: clamp(2.5rem, 10vw, 5rem);
       font-weight: 700;
       line-height: 0.95;
       letter-spacing: -0.01em;
@@ -386,7 +381,7 @@
 
     /* ── ABOUT ── */
     #about {
-      padding: 10rem 8%;
+      padding: 5rem 5%;
       background: var(--dark);
       position: relative;
       overflow: hidden;
@@ -402,7 +397,7 @@
 
     .about-top {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr;
       gap: 5rem;
       align-items: start;
       margin-bottom: 6rem;
@@ -449,7 +444,7 @@
     /* Feature boxes */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1fr;
       gap: 1.5rem;
     }
     .feature-box {
@@ -494,7 +489,7 @@
 
     /* ── SPORTS ── */
     #sports {
-      padding: 8rem 0;
+      padding: 5rem 0;
       background: var(--dark2);
     }
     .sports-header {
@@ -518,9 +513,10 @@
 
     .sport-card {
       position: relative;
-      height: 280px;
+      height: auto;
+      min-height: 260px;
       overflow: hidden;
-      cursor: none;
+      cursor: auto;
       border: 1px solid rgba(201,168,76,0.08);
     }
     .sport-card-bg {
@@ -559,9 +555,11 @@
       position: absolute;
       inset: 0;
       display: flex;
-      align-items: center;
-      padding: 0 4rem;
-      justify-content: space-between;
+      align-items: flex-start;
+      padding: 2rem;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
     }
 
     .sport-card-left { flex: 1; }
@@ -589,10 +587,10 @@
     .sport-card-right {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       gap: 1rem;
-      transform: translateX(30px);
-      opacity: 0;
+      transform: translateX(0);
+      opacity: 1;
       transition: transform 0.5s var(--transition), opacity 0.5s;
     }
     .sport-card:hover .sport-card-right {
@@ -610,7 +608,7 @@
       font-weight: 500;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      cursor: none;
+      cursor: auto;
       transition: background 0.3s, color 0.3s;
     }
     .sport-book-btn:hover { background: var(--gold); color: var(--dark); }
@@ -625,10 +623,10 @@
     /* Sport decorative icon */
     .sport-deco {
       position: absolute;
-      right: 8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 8rem;
+      right: 1rem;
+      top: 1rem;
+      transform: none;
+      font-size: 5rem;
       opacity: 0.04;
       user-select: none;
       pointer-events: none;
@@ -638,7 +636,7 @@
 
     /* ── BOOKING FORM ── */
     #booking {
-      padding: 9rem 8%;
+      padding: 5rem 5%;
       background: var(--dark);
       position: relative;
       overflow: hidden;
@@ -680,7 +678,7 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 1.8rem;
     }
     .form-group.full { grid-column: 1 / -1; }
@@ -715,7 +713,7 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      cursor: none;
+      cursor: auto;
       width: 100%;
     }
     .form-group input::placeholder { color: rgba(245,240,232,0.25); }
@@ -756,7 +754,7 @@
       font-weight: 500;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      cursor: none;
+      cursor: auto;
       overflow: hidden;
       transition: color 0.4s;
     }
@@ -836,12 +834,12 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      cursor: none;
+      cursor: auto;
     }
 
     /* ── PRICING ── */
     #pricing {
-      padding: 9rem 8%;
+      padding: 5rem 5%;
       background: var(--dark2);
     }
     .pricing-header {
@@ -856,7 +854,7 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
       max-width: 1000px;
       margin: 0 auto;
@@ -969,7 +967,7 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       transition: background 0.3s, color 0.3s;
-      cursor: none;
+      cursor: auto;
       text-align: center;
     }
     .price-btn:hover { background: var(--gold); color: var(--dark); }
@@ -996,7 +994,7 @@
     }
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
       position: relative;
     }
@@ -1024,7 +1022,7 @@
 
     /* ── TESTIMONIALS ── */
     #testimonials {
-      padding: 9rem 8%;
+      padding: 5rem 5%;
       background: var(--dark);
     }
     .testi-header {
@@ -1039,7 +1037,7 @@
 
     .testi-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
     }
 
@@ -1112,7 +1110,7 @@
 
     /* ── CONTACT ── */
     #contact {
-      padding: 9rem 8%;
+      padding: 5rem 5%;
       background: var(--dark2);
       position: relative;
       overflow: hidden;
@@ -1176,7 +1174,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       transition: background 0.3s, transform 0.3s;
-      cursor: none;
+      cursor: auto;
     }
     .whatsapp-btn:hover { background: #1eb857; transform: translateY(-2px); }
 
@@ -1227,7 +1225,7 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       transition: background 0.3s, color 0.3s;
-      cursor: none;
+      cursor: auto;
     }
     .map-find-btn:hover { background: var(--gold); color: var(--dark); }
 
@@ -1265,7 +1263,7 @@
       color: rgba(245,240,232,0.5);
       font-size: 0.85rem;
       transition: border-color 0.3s, color 0.3s, background 0.3s;
-      cursor: none;
+      cursor: auto;
       text-decoration: none;
     }
     .social-icon:hover {
@@ -1403,44 +1401,54 @@
       color: rgba(255,255,255,0.6);
       letter-spacing: 0.1em;
     }
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .about-top { grid-template-columns: 1fr; gap: 2rem; }
-      .features-grid { grid-template-columns: repeat(2,1fr); }
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-      .price-card.popular { transform: none; }
-      .stats-grid { grid-template-columns: repeat(2,1fr); }
-      .stats-grid .stat-item:nth-child(2) { border-right: none; }
+    
+    /* ── MOBILE-FIRST RESPONSIVE (TAILWIND BREAKPOINTS) ── */
+
+    /* sm (640px) */
+    @media (min-width: 640px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* md (768px) */
+    @media (min-width: 768px) {
+      .hero-title { font-size: clamp(3rem, 8vw, 7rem); }
+      #about, #booking, #pricing, #stats, #testimonials, #contact { padding: 8rem 6%; }
+      #sports { padding: 8rem 0; }
+      
+      .form-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr 1fr; }
-      .testi-grid .testi-card:last-child { grid-column: 1 / -1; max-width: 400px; margin: 0 auto; width: 100%; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      
+      .sport-card { height: 280px; min-height: auto; }
+      .sport-card-content { flex-direction: row; align-items: center; justify-content: space-between; padding: 0 4rem; }
+      .sport-card-right { transform: translateX(30px); opacity: 0; align-items: flex-end; }
+      .sport-card:hover .sport-card-right { transform: translateX(0); opacity: 1; }
+      .sport-deco { right: 8rem; top: 50%; transform: translateY(-50%); font-size: 8rem; }
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero-title { font-size: clamp(2.5rem, 10vw, 5rem); }
-      #about { padding: 6rem 6%; }
-      .features-grid { grid-template-columns: 1fr 1fr; }
-      .sport-card { height: 220px; }
-      .sport-card-content { padding: 0 2rem; }
-      .sport-deco { right: 3rem; font-size: 5rem; }
-      .sports-grid { padding: 0 4%; }
-      .booking-form { padding: 2rem 1.5rem; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: auto; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .testi-grid .testi-card:last-child { max-width: 100%; }
-      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+    /* lg (1024px) */
+    @media (min-width: 1024px) {
+      body, a, button, input, select, .feature-box, .sport-card, .price-card, .testi-card, .hamburger, .sport-book-btn, .price-btn, .hero-cta, .whatsapp-btn, .map-find-btn, .btn-submit, .success-close { cursor: none !important; }
+      #cursor { display: block !important; }
+      
+      #navbar { padding: 2.5rem 4%; position: fixed; }
+      .sf-brand { position: static; transform: none; align-items: flex-start; }
+      .sf-brand-bottom { padding-left: 2px; }
+      
+      #about, #booking, #pricing, #stats, #testimonials, #contact { padding: 10rem 8%; }
+      
+      .about-top { grid-template-columns: 1fr 1.4fr; }
+      .features-grid, .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .pricing-grid, .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1fr 1.5fr; }
+      .footer-top { grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; padding: 5rem 8% 3rem; }
     }
-    @media (max-width: 480px) {
-      .features-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2,1fr); }
-      .pricing-grid { max-width: 100%; }
-      .contact-map { height: 260px; }
+
+    /* xl (1280px) */
+    @media (min-width: 1280px) {
+      .booking-inner, .pricing-grid { max-width: 1100px; }
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -1489,7 +1497,6 @@
 <!-- ── SF HERO ── -->
 <section id="hero" class="sf-hero">
   <div class="sf-hero-bg" id="heroBg"></div>
-  <div class="sf-hero-leaves" id="heroLeaves"></div>
 </section>
 
 <!-- ── MARQUEE ── -->
@@ -1987,22 +1994,40 @@
   const preloader = document.getElementById('preloader');
   const preloaderBar = document.getElementById('preloaderBar');
   const preloaderText = document.getElementById('preloaderText');
+  
+  // ── GSAP & ScrollTrigger ──
+  gsap.registerPlugin(ScrollTrigger);
+  const isMobile = window.innerWidth <= 768;
 
   function playHeroAnimations() {
-    gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-    gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+    if (isMobile) {
+      document.querySelector('.sf-brand').style.opacity = '1';
+      document.querySelector('.nav-trigger').style.opacity = '1';
+    } else {
+      gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+    }
+
+    gsap.to('#heroBg', {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      },
+      scale: 1.15,
+      filter: 'brightness(0.6) blur(0px)',
+      ease: 'none'
+    });
   }
 
   if (sessionStorage.getItem('hasVisited')) {
     preloader.style.display = 'none';
     gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
-    gsap.set('#heroLeaves', { scale: 8, opacity: 0 });
-    document.getElementById('heroLeaves').style.display = 'none';
     playHeroAnimations();
   } else {
-    // Initial state: trees fully visible covering the screen, turf dimly visible behind
-    gsap.set('#heroBg', { scale: 1.15, filter: 'brightness(0.5) blur(2px)' });
-    gsap.set('#heroLeaves', { scale: 1, opacity: 1 });
+    // Initial state: turf dimly visible behind
+    gsap.set('#heroBg', { scale: 1.3, filter: 'brightness(0.3) blur(5px)' });
 
     let pct = 0;
     const loadingInterval = setInterval(() => {
@@ -2013,30 +2038,26 @@
       
       if (pct >= 100) {
         clearInterval(loadingInterval);
+        
+        // Fade out preloader content first
+        gsap.to('.preloader-brand, .preloader-progress-container', { opacity: 0, duration: 0.5 });
+        
         setTimeout(() => {
+          preloader.style.background = 'transparent';
           preloader.classList.add('hidden');
-          sessionStorage.setItem('hasVisited', 'true');
           
-          // Trees fly outward like moving through foliage - 1 second
-          gsap.to('#heroLeaves', {
-            scale: 8,
-            opacity: 0,
-            duration: 1.0,
-            ease: 'power2.in',
-            onComplete: () => {
-              document.getElementById('heroLeaves').style.display = 'none';
-            }
-          });
-
-          // Turf becomes bright and sharp as trees move away
+          // Turf becomes bright and sharp, zooming out slightly like drone arriving
           gsap.to('#heroBg', {
             scale: 1,
             filter: 'brightness(1) blur(0px)',
-            duration: 1.0,
+            duration: 3.5,
             ease: 'power2.inOut',
-            onComplete: playHeroAnimations
+            onComplete: () => {
+              sessionStorage.setItem('hasVisited', 'true');
+              playHeroAnimations();
+            }
           });
-        }, 300);
+        }, 500);
       }
     }, 40);
   }
@@ -2062,12 +2083,17 @@
     cursor.style.top  = curY + 'px';
     requestAnimationFrame(animateCursor);
   }
-  animateCursor();
-
-  document.querySelectorAll('a, button, .feature-box, .sport-card, .price-card, .testi-card, .hamburger').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
-  });
+  
+  // Disable custom cursor on touch devices to improve usability
+  if (!window.matchMedia("(pointer: coarse)").matches && window.innerWidth > 768) {
+    animateCursor();
+    document.querySelectorAll('a, button, .feature-box, .sport-card, .price-card, .testi-card, .hamburger').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+    });
+  } else {
+    cursor.style.display = 'none';
+  }
 
   // ── NAVBAR SCROLL ──
   const navbar = document.getElementById('navbar');
@@ -2094,183 +2120,162 @@
   // ── SF HERO ANIMATIONS ──
   // Hero animations are now handled by playHeroAnimations() in the preloader logic
 
-  // ── HERO PARALLAX ──
-  gsap.to('#heroBg', {
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true
-    },
-    scale: 1.15,
-    filter: 'brightness(0.7)',
-    ease: 'none'
-  });
+  // ── SCROLL ANIMATIONS (DESKTOP ONLY) ──
+  if (!isMobile) {
+    // ── MARQUEE SECTION ──
+    gsap.from('.marquee-section', {
+      scrollTrigger: { trigger: '.marquee-section', start: 'top 95%' },
+      opacity: 0, duration: 1, ease: 'power2.out'
+    });
 
-  // ── MARQUEE SECTION ──
-  gsap.from('.marquee-section', {
-    scrollTrigger: { trigger: '.marquee-section', start: 'top 95%' },
-    opacity: 0, duration: 1, ease: 'power2.out'
-  });
+    // ── ABOUT SECTION ──
+    gsap.from('#about .section-label', {
+      scrollTrigger: { trigger: '#about', start: 'top 82%' },
+      x: -40, opacity: 0, duration: 0.9, ease: 'power3.out'
+    });
+    gsap.from('#about h2', {
+      scrollTrigger: { trigger: '#about', start: 'top 78%' },
+      y: 60, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#aboutLeft', {
+      scrollTrigger: { trigger: '#about', start: 'top 78%' },
+      x: -80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.05
+    });
+    gsap.from('#aboutRight p', {
+      scrollTrigger: { trigger: '#about', start: 'top 75%' },
+      y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3
+    });
+    gsap.from('#featuresGrid .feature-box', {
+      scrollTrigger: { trigger: '#featuresGrid', start: 'top 85%' },
+      y: 80, opacity: 0, scale: 0.9, duration: 0.9,
+      stagger: 0.15, ease: 'back.out(1.4)'
+    });
 
-  // ── ABOUT SECTION ──
-  // Section label slide
-  gsap.from('#about .section-label', {
-    scrollTrigger: { trigger: '#about', start: 'top 82%' },
-    x: -40, opacity: 0, duration: 0.9, ease: 'power3.out'
-  });
-  // Big heading word-by-word
-  gsap.from('#about h2', {
-    scrollTrigger: { trigger: '#about', start: 'top 78%' },
-    y: 60, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#aboutLeft', {
-    scrollTrigger: { trigger: '#about', start: 'top 78%' },
-    x: -80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.05
-  });
-  gsap.from('#aboutRight p', {
-    scrollTrigger: { trigger: '#about', start: 'top 75%' },
-    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: 'power3.out', delay: 0.3
-  });
-  // Features: fan out from bottom
-  gsap.from('#featuresGrid .feature-box', {
-    scrollTrigger: { trigger: '#featuresGrid', start: 'top 85%' },
-    y: 80, opacity: 0, scale: 0.9, duration: 0.9,
-    stagger: 0.15, ease: 'back.out(1.4)'
-  });
+    // ── SPORTS SECTION ──
+    gsap.from('#sports .section-label', {
+      scrollTrigger: { trigger: '#sports', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#sports h2', {
+      scrollTrigger: { trigger: '#sports', start: 'top 80%' },
+      clipPath: 'inset(100% 0 0 0)',
+      y: 40, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#sportsGrid .sport-card:nth-child(odd)', {
+      scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
+      x: -100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
+    });
+    gsap.from('#sportsGrid .sport-card:nth-child(even)', {
+      scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
+      x: 100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
+    });
 
-  // ── SPORTS SECTION ──
-  gsap.from('#sports .section-label', {
-    scrollTrigger: { trigger: '#sports', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#sports h2', {
-    scrollTrigger: { trigger: '#sports', start: 'top 80%' },
-    clipPath: 'inset(100% 0 0 0)',
-    y: 40, opacity: 0, duration: 1.2, ease: 'power3.out', delay: 0.1
-  });
-  // Cards slide in from alternating sides
-  gsap.from('#sportsGrid .sport-card:nth-child(odd)', {
-    scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
-    x: -100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
-  });
-  gsap.from('#sportsGrid .sport-card:nth-child(even)', {
-    scrollTrigger: { trigger: '#sportsGrid', start: 'top 82%' },
-    x: 100, opacity: 0, duration: 1.1, stagger: 0.2, ease: 'power3.out'
-  });
+    // ── BOOKING SECTION ──
+    gsap.from('#booking .section-label', {
+      scrollTrigger: { trigger: '#booking', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#booking h2', {
+      scrollTrigger: { trigger: '#booking', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#bookingForm', {
+      scrollTrigger: { trigger: '#bookingForm', start: 'top 85%' },
+      y: 80, opacity: 0, scale: 0.97, duration: 1.2, ease: 'power3.out', delay: 0.2
+    });
+    gsap.from('#bookingForm .form-group', {
+      scrollTrigger: { trigger: '#bookingForm', start: 'top 82%' },
+      y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.4
+    });
 
-  // ── BOOKING SECTION ──
-  gsap.from('#booking .section-label', {
-    scrollTrigger: { trigger: '#booking', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#booking h2', {
-    scrollTrigger: { trigger: '#booking', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#bookingForm', {
-    scrollTrigger: { trigger: '#bookingForm', start: 'top 85%' },
-    y: 80, opacity: 0, scale: 0.97, duration: 1.2, ease: 'power3.out', delay: 0.2
-  });
-  gsap.from('#bookingForm .form-group', {
-    scrollTrigger: { trigger: '#bookingForm', start: 'top 82%' },
-    y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 0.4
-  });
+    // ── PRICING SECTION ──
+    gsap.from('#pricing .section-label', {
+      scrollTrigger: { trigger: '#pricing', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#pricing h2', {
+      scrollTrigger: { trigger: '#pricing', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#pricingGrid .price-card', {
+      scrollTrigger: { trigger: '#pricingGrid', start: 'top 82%' },
+      y: 100, opacity: 0, scale: 0.92, duration: 1,
+      stagger: 0.18, ease: 'back.out(1.2)'
+    });
 
-  // ── PRICING SECTION ──
-  gsap.from('#pricing .section-label', {
-    scrollTrigger: { trigger: '#pricing', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#pricing h2', {
-    scrollTrigger: { trigger: '#pricing', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#pricingGrid .price-card', {
-    scrollTrigger: { trigger: '#pricingGrid', start: 'top 82%' },
-    y: 100, opacity: 0, scale: 0.92, duration: 1,
-    stagger: 0.18, ease: 'back.out(1.2)'
-  });
-
-  // ── STATS COUNTER ──
-  function animateCounter(el, target, suffix='') {
-    gsap.to({ val: 0 }, {
-      val: target,
-      duration: 2.2,
-      ease: 'power2.out',
-      onUpdate: function() {
-        el.textContent = Math.round(this.targets()[0].val).toLocaleString() + suffix;
+    // ── STATS SECTION ──
+    ScrollTrigger.create({
+      trigger: '#stats',
+      start: 'top 75%',
+      once: true,
+      onEnter: () => {
+        animateCounter(document.getElementById('stat1'), 500, '+');
+        animateCounter(document.getElementById('stat2'), 1000, '+');
+        animateCounter(document.getElementById('stat3'), 3);
       }
     });
+
+    gsap.from('#statsGrid .stat-item', {
+      scrollTrigger: { trigger: '#stats', start: 'top 80%' },
+      y: 60, opacity: 0, scale: 0.85, duration: 1,
+      stagger: 0.15, ease: 'back.out(1.5)'
+    });
+
+    gsap.to('#stats', {
+      scrollTrigger: {
+        trigger: '#stats',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      },
+      backgroundPositionY: '30%',
+      ease: 'none'
+    });
+
+    // ── TESTIMONIALS ──
+    gsap.from('#testimonials .section-label', {
+      scrollTrigger: { trigger: '#testimonials', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#testimonials h2', {
+      scrollTrigger: { trigger: '#testimonials', start: 'top 82%' },
+      y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
+    });
+    gsap.from('#testiGrid .testi-card', {
+      scrollTrigger: { trigger: '#testiGrid', start: 'top 82%' },
+      y: 70, opacity: 0, scale: 0.93, duration: 1,
+      stagger: 0.2, ease: 'back.out(1.3)'
+    });
+
+    // ── CONTACT SECTION ──
+    gsap.from('#contact .section-label', {
+      scrollTrigger: { trigger: '#contact', start: 'top 85%' },
+      opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
+    });
+    gsap.from('#contactLeft', {
+      scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+      x: -80, opacity: 0, duration: 1.3, ease: 'power3.out'
+    });
+    gsap.from('#contactRight', {
+      scrollTrigger: { trigger: '#contact', start: 'top 80%' },
+      x: 80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.15
+    });
+    gsap.from('.contact-map', {
+      scrollTrigger: { trigger: '.contact-map', start: 'top 85%' },
+      scale: 0.95, opacity: 0, duration: 1.2, ease: 'power3.out'
+    });
+
+    // ── FOOTER ──
+    gsap.from('footer .footer-col', {
+      scrollTrigger: { trigger: 'footer', start: 'top 90%' },
+      y: 50, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out'
+    });
+  } else {
+    // Mobile fallback for stat counters
+    document.getElementById('stat1').textContent = '500+';
+    document.getElementById('stat2').textContent = '1000+';
+    document.getElementById('stat3').textContent = '3';
   }
-
-  ScrollTrigger.create({
-    trigger: '#stats',
-    start: 'top 75%',
-    once: true,
-    onEnter: () => {
-      animateCounter(document.getElementById('stat1'), 500, '+');
-      animateCounter(document.getElementById('stat2'), 1000, '+');
-      animateCounter(document.getElementById('stat3'), 3);
-    }
-  });
-
-  gsap.from('#statsGrid .stat-item', {
-    scrollTrigger: { trigger: '#stats', start: 'top 80%' },
-    y: 60, opacity: 0, scale: 0.85, duration: 1,
-    stagger: 0.15, ease: 'back.out(1.5)'
-  });
-
-  // Stats section background parallax
-  gsap.to('#stats', {
-    scrollTrigger: {
-      trigger: '#stats',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    },
-    backgroundPositionY: '30%',
-    ease: 'none'
-  });
-
-  // ── TESTIMONIALS ──
-  gsap.from('#testimonials .section-label', {
-    scrollTrigger: { trigger: '#testimonials', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#testimonials h2', {
-    scrollTrigger: { trigger: '#testimonials', start: 'top 82%' },
-    y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.1
-  });
-  gsap.from('#testiGrid .testi-card', {
-    scrollTrigger: { trigger: '#testiGrid', start: 'top 82%' },
-    y: 70, opacity: 0, scale: 0.93, duration: 1,
-    stagger: 0.2, ease: 'back.out(1.3)'
-  });
-
-  // ── CONTACT SECTION ──
-  gsap.from('#contact .section-label', {
-    scrollTrigger: { trigger: '#contact', start: 'top 85%' },
-    opacity: 0, y: -20, duration: 0.8, ease: 'power3.out'
-  });
-  gsap.from('#contactLeft', {
-    scrollTrigger: { trigger: '#contact', start: 'top 80%' },
-    x: -80, opacity: 0, duration: 1.3, ease: 'power3.out'
-  });
-  gsap.from('#contactRight', {
-    scrollTrigger: { trigger: '#contact', start: 'top 80%' },
-    x: 80, opacity: 0, duration: 1.3, ease: 'power3.out', delay: 0.15
-  });
-  gsap.from('.contact-map', {
-    scrollTrigger: { trigger: '.contact-map', start: 'top 85%' },
-    scale: 0.95, opacity: 0, duration: 1.2, ease: 'power3.out'
-  });
-
-  // ── FOOTER ──
-  gsap.from('footer .footer-col', {
-    scrollTrigger: { trigger: 'footer', start: 'top 90%' },
-    y: 50, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out'
-  });
 
   // ── BOOKING FORM LOGIC ──
   // Set min date to today
