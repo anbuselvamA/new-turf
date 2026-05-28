@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vadivasal Turf — Premium Sports Experience, Salem</title>
@@ -166,6 +167,97 @@
       transition: opacity 0.4s;
     }
     .mobile-overlay.show { opacity: 1; pointer-events: all; }
+
+    
+    /* Premium Typography Styles */
+    .premium-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .premium-top-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    
+    .premium-top-line::before,
+    .premium-top-line::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: rgba(168, 255, 120, 0.6); /* Subtle green line */
+    }
+
+    .premium-main-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.05em;
+      /* Gold Metallic Gradient */
+      background: linear-gradient(to bottom, #FFF7D6 0%, #D4AF37 40%, #AA771C 60%, #F3E5AB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    }
+
+    .premium-sub-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: -0.5rem;
+    }
+
+    .premium-sub-title-wrapper::before,
+    .premium-sub-title-wrapper::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #a8ff78);
+    }
+    .premium-sub-title-wrapper::after {
+      background: linear-gradient(-90deg, transparent, #a8ff78);
+    }
+
+    .premium-sub-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      margin: 0;
+      text-transform: uppercase;
+      /* Neon Green Gradient */
+      background: linear-gradient(to bottom, #b4f849 0%, #7cfc00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(124, 252, 0, 0.3));
+    }
+
+    /* Update .hero-content alignment */
+    .hero-content {
+      align-items: center;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .premium-sub-title-wrapper::before,
+      .premium-sub-title-wrapper::after { width: 40px; }
+      .premium-top-line { font-size: 0.5rem; gap: 0.5rem; }
+      .premium-top-line::before, .premium-top-line::after { width: 20px; }
+    }
 
     /* ── SF HERO ── */
     .sf-hero {
@@ -1962,7 +2054,7 @@
           gsap.set('#heroBg', { scale: 1.4, filter: 'brightness(0.2) blur(10px)', opacity: 1 });
           
           // Hide hero content initially
-          gsap.set('.hero-content', { opacity: 0, filter: 'blur(10px)', scale: 1.1 });
+          gsap.set('.hero-content', { opacity: 0, filter: 'blur(20px)', scale: 0.8 });
           gsap.set('.sf-brand', { opacity: 0 });
           gsap.set('.nav-trigger', { opacity: 0 });
 
@@ -2010,7 +2102,7 @@
             .to('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)', duration: 4, ease: 'power2.out' }, "reveal")
             
             // Step 5: Title fades in with blur effect
-            .to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 2, ease: 'power2.out' }, "reveal+=1.5");
+            .to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 2, ease: 'power2.out' }, "reveal+=0.3");
 
         }, 500);
       }
