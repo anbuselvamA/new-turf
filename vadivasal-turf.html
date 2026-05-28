@@ -267,8 +267,9 @@
       overflow: hidden;
       background: var(--dark);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
+      padding-top: 15vh;
     }
     .sf-hero-bg {
       position: absolute;
@@ -2004,6 +2005,7 @@
   const isMobile = window.innerWidth <= 768;
 
   function playHeroAnimations() {
+    gsap.to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 1.5, ease: 'power2.out' });
     if (isMobile) {
       document.querySelector('.sf-brand').style.opacity = '1';
       document.querySelector('.nav-trigger').style.opacity = '1';
