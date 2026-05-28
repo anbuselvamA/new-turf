@@ -44,24 +44,8 @@
       cursor: auto;
     }
 
-    /* ── CUSTOM CURSOR ── */
-    #cursor {
-      display: none;
-      position: fixed;
-      width: 12px; height: 12px;
-      background: var(--gold);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s var(--transition), height 0.3s var(--transition), background 0.3s;
-      mix-blend-mode: normal;
-    }
-    #cursor.grow {
-      width: 40px; height: 40px;
-      background: transparent;
-      border: 1.5px solid var(--gold);
-    }
+    
+    
 
     /* ── TYPOGRAPHY ── */
     h1, h2, h3, h4 { font-family: var(--font-serif); }
@@ -1467,7 +1451,7 @@
 </div>
 
 <!-- Custom Cursor -->
-<div id="cursor"></div>
+
 
 <!-- ── MOBILE NAV OVERLAY ── -->
 <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -1653,34 +1637,7 @@
 <!-- ── JAVASCRIPT ── -->
 <script>
   // ══════════════════════════════════════════════════════════════
-  // ── CUSTOM CURSOR ──
-  const cursor = document.getElementById('cursor');
-  let mouseX = 0, mouseY = 0;
-  let curX = 0, curY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function animateCursor() {
-    curX = lerp(curX, mouseX, 0.12);
-    curY = lerp(curY, mouseY, 0.12);
-    cursor.style.left = curX + 'px';
-    cursor.style.top  = curY + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  
-  // Disable custom cursor on touch devices to improve usability
-  if (!window.matchMedia("(pointer: coarse)").matches && window.innerWidth > 768) {
-    animateCursor();
-    document.querySelectorAll('a, button, .feature-box, .sport-card, .price-card, .testi-card, .hamburger').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
-    });
-  } else {
+   else {
     cursor.style.display = 'none';
   }
 
