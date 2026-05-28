@@ -1473,13 +1473,13 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
   <ul>
-      <li><a href="booking.html" style="color: var(--gold);">Book Now</a></li>
-      <li><a href="#about" onclick="toggleNav()">About</a></li>
-      <li><a href="#pricing" onclick="toggleNav()">Pricing</a></li>
-      <li><a href="#sports" onclick="toggleNav()">Sports</a></li>
-      <li><a href="#stats" onclick="toggleNav()">Stats</a></li>
-      <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
-      <li><a href="#testimonials" onclick="toggleNav()">Reviews</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about" onclick="toggleNav()">About</a></li>
+      <li><a href="index.html#pricing" onclick="toggleNav()">Pricing</a></li>
+      <li><a href="index.html#sports" onclick="toggleNav()">Sports</a></li>
+      <li><a href="index.html#stats" onclick="toggleNav()">Stats</a></li>
+      <li><a href="index.html#contact" onclick="toggleNav()">Contact</a></li>
+      <li><a href="index.html#testimonials" onclick="toggleNav()">Reviews</a></li>
     </ul>
 </nav>
 
@@ -1501,356 +1501,96 @@
   </div>
 </header>
 
-<!-- ── SF HERO ── -->
-<section id="hero" class="sf-hero">
-  <div class="sf-hero-bg" id="heroBg"></div>
+
+<!-- ── BOOKING PAGE WRAPPER ── -->
+<div style="padding-top: 100px; padding-bottom: 50px; min-height: 80vh; display: flex; align-items: center; width: 100%;">
+<div style="width: 100%;">
+<!-- ── BOOKING FORM ── -->
+<section id="booking">
+  <div class="booking-inner">
+    <div class="booking-header">
+      <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+        <div class="section-divider-line"></div>
+        <span class="section-label">Reserve Your Court</span>
+        <div class="section-divider-line"></div>
+      </div>
+      <h2>Book Your<br/><em style="font-style:italic;color:var(--gold);">Session</em></h2>
+      <p>Secure your slot in under 60 seconds. We'll confirm via WhatsApp.</p>
+    </div>
+
+    <div class="booking-form" id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 00000 00000" autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@email.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="sport">Select Sport</label>
+          <div class="select-wrapper">
+            <select id="sport">
+              <option value="" disabled selected>Choose a sport</option>
+              <option value="cricket">Cricket</option>
+              <option value="football">Football (5-a-side)</option>
+              <option value="football7">Football (7-a-side)</option>
+              <option value="volleyball">Volleyball</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bookDate">Select Date</label>
+          <input type="date" id="bookDate" />
+        </div>
+        <div class="form-group">
+          <label for="timeSlot">Time Slot</label>
+          <div class="select-wrapper">
+            <select id="timeSlot">
+              <option value="" disabled selected>Choose a time</option>
+              <option value="0600">6:00 AM</option>
+              <option value="0800">8:00 AM</option>
+              <option value="1000">10:00 AM</option>
+              <option value="1200">12:00 PM</option>
+              <option value="1400">2:00 PM</option>
+              <option value="1600">4:00 PM</option>
+              <option value="1800">6:00 PM</option>
+              <option value="2000">8:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="players">Number of Players</label>
+          <input type="number" id="players" placeholder="e.g. 10" min="2" max="30" />
+        </div>
+      </div>
+      <div class="form-submit">
+        <button class="btn-submit" id="submitBtn" type="button">
+          <span>Confirm Booking</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ── MARQUEE ── -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span class="marquee-item">Cricket</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Football</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Volleyball</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Premium Turf</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Salem</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Floodlit Courts</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Book Online</span><span class="marquee-item marquee-dot">•</span>
-    <!-- duplicate for seamless loop -->
-    <span class="marquee-item">Cricket</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Football</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Volleyball</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Premium Turf</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Salem</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Floodlit Courts</span><span class="marquee-item marquee-dot">•</span>
-    <span class="marquee-item">Book Online</span><span class="marquee-item marquee-dot">•</span>
+<!-- Success Popup -->
+<div class="success-popup" id="successPopup">
+  <div class="success-box">
+    <div class="success-icon">✦</div>
+    <h3>Booking Confirmed!</h3>
+    <p>Thank you for choosing Vadivasal Turf. We'll send your confirmation details to your WhatsApp and email shortly. See you on the field!</p>
+    <button class="success-close" id="successClose">Close</button>
   </div>
 </div>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="about-top">
-    <div class="about-left" id="aboutLeft">
-      <div class="about-est">EST.<br/>2024</div>
-      <div class="about-est-label">Salem's Finest Sports Destination</div>
-    </div>
-    <div class="about-text-col" id="aboutRight">
-      <div class="section-divider">
-        <div class="section-divider-line"></div>
-        <span class="section-label">Our Story</span>
-      </div>
-      <h2>A New Standard<br/>For Sports in Salem</h2>
-      <div class="divider"></div>
-      <p>Vadivasal Turf was born from a simple belief: every athlete, amateur or elite, deserves a world-class stage to perform. We set out to create not just a sports facility, but an experience that elevates your game.</p>
-      <p>Nestled in Salem, Tamil Nadu, our premium grounds offer state-of-the-art infrastructure, meticulous maintenance, and an atmosphere that brings out the champion in you.</p>
-    </div>
-  </div>
 
-  <div class="features-grid" id="featuresGrid">
-    <div class="feature-box">
-      <div class="feature-icon">💡</div>
-      <h4>Floodlit Courts</h4>
-      <p>Play day or night with our high-intensity LED floodlighting system designed for professional clarity.</p>
-    </div>
-    <div class="feature-box">
-      <div class="feature-icon">🌿</div>
-      <h4>Premium Turf</h4>
-      <p>FIFA-grade artificial grass maintained to international standards for optimal performance and safety.</p>
-    </div>
-    <div class="feature-box">
-      <div class="feature-icon">🚿</div>
-      <h4>Changing Rooms</h4>
-      <p>Spacious, clean, and well-equipped changing rooms and shower facilities for your comfort.</p>
-    </div>
-    <div class="feature-box">
-      <div class="feature-icon">🅿️</div>
-      <h4>Free Parking</h4>
-      <p>Ample complimentary parking space for all visitors — no hassle, just game time.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRICING ── -->
-<section id="pricing">
-  <div class="pricing-header">
-    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-      <div class="section-divider-line"></div>
-      <span class="section-label">Transparent Pricing</span>
-      <div class="section-divider-line"></div>
-    </div>
-    <h2>Simple. Honest.<br/><em style="font-style:italic;color:var(--gold);">Pricing.</em></h2>
-  </div>
-
-  <div class="pricing-grid" id="pricingGrid">
-    <!-- Morning -->
-    <div class="price-card">
-      <div class="price-time">Morning Slot</div>
-      <h3>Dawn Session</h3>
-      <div class="price-amount">
-        <span class="currency">₹</span>
-        <span class="number" data-count="800">800</span>
-        <span class="per"> / hour</span>
-      </div>
-      <div class="price-divider"></div>
-      <ul class="price-amenities">
-        <li>6:00 AM – 12:00 PM</li>
-        <li>All three sports available</li>
-        <li>Free parking included</li>
-        <li>Changing room access</li>
-        <li>Basic equipment available</li>
-      </ul>
-      <a href="#booking" class="price-btn">Book Morning</a>
-    </div>
-
-    <!-- Evening — Popular -->
-    <div class="price-card popular">
-      <div class="popular-badge">Most Popular</div>
-      <div class="price-time">Evening Slot</div>
-      <h3>Golden Hour</h3>
-      <div class="price-amount">
-        <span class="currency">₹</span>
-        <span class="number" data-count="1200">1200</span>
-        <span class="per"> / hour</span>
-      </div>
-      <div class="price-divider"></div>
-      <ul class="price-amenities">
-        <li>2:00 PM – 8:00 PM</li>
-        <li>All three sports available</li>
-        <li>Floodlights included</li>
-        <li>Premium equipment rental</li>
-        <li>Changing room + shower</li>
-      </ul>
-      <a href="#booking" class="price-btn">Book Evening</a>
-    </div>
-
-    <!-- Night -->
-    <div class="price-card">
-      <div class="price-time">Night Slot</div>
-      <h3>Night Game</h3>
-      <div class="price-amount">
-        <span class="currency">₹</span>
-        <span class="number" data-count="1500">1500</span>
-        <span class="per"> / hour</span>
-      </div>
-      <div class="price-divider"></div>
-      <ul class="price-amenities">
-        <li>8:00 PM – 12:00 AM</li>
-        <li>All three sports available</li>
-        <li>High-intensity floodlights</li>
-        <li>Full equipment set</li>
-        <li>Priority support line</li>
-      </ul>
-      <a href="#booking" class="price-btn">Book Night</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── SPORTS ── -->
-<section id="sports">
-  <div class="sports-header">
-    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-      <div class="section-divider-line"></div>
-      <span class="section-label">Our Courts</span>
-      <div class="section-divider-line"></div>
-    </div>
-    <h2>Choose Your<br/><em style="font-style:italic;color:var(--gold);">Arena</em></h2>
-  </div>
-
-  <div class="sports-grid" id="sportsGrid">
-    <!-- Cricket -->
-    <div class="sport-card sport-card-cricket">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">🏏</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">01 / Cricket</div>
-          <div class="sport-card-name">Cricket</div>
-          <div class="sport-card-detail">Full-length pitch · Batting nets · Floodlit · Up to 22 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Available All Day</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Football -->
-    <div class="sport-card sport-card-football">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">⚽</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">02 / Football</div>
-          <div class="sport-card-name">Football</div>
-          <div class="sport-card-detail">5-a-side · 7-a-side · FIFA turf · Goals included · Scoreboard</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Most Popular</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Volleyball -->
-    <div class="sport-card sport-card-volleyball">
-      <div class="sport-card-bg"></div>
-      <div class="sport-card-overlay"></div>
-      <div class="sport-deco">🏐</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">03 / Volleyball</div>
-          <div class="sport-card-name">Volleyball</div>
-          <div class="sport-card-detail">Regulation net · Sand & turf court · Up to 12 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Great for Teams</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── STATS ── -->
-<section id="stats">
-  <div class="stats-grid" id="statsGrid">
-    <div class="stat-item">
-      <div class="stat-number" data-target="500" id="stat1">0</div>
-      <div class="stat-label">Matches Hosted</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-target="1000" id="stat2">0</div>
-      <div class="stat-label">Happy Players</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-target="3" id="stat3">0</div>
-      <div class="stat-label">Sports Available</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" id="stat4">5★</div>
-      <div class="stat-label">Average Rating</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="contact-grid">
-    <div class="contact-left" id="contactLeft">
-      <div class="section-divider">
-        <div class="section-divider-line"></div>
-        <span class="section-label">Get In Touch</span>
-      </div>
-      <h2>Find Us in<br/>the Heart of Salem</h2>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <div class="contact-detail">
-            <div class="contact-label">Phone</div>
-            <a href="tel:+919876543210">+91 98765 43210</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div class="contact-detail">
-            <div class="contact-label">Email</div>
-            <a href="mailto:info@vadivalsalturf.in">info@vadivalsalturf.in</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-detail">
-            <div class="contact-label">Address</div>
-            <p>Vadivasal Turf, Near Periyar University Road,<br/>Salem, Tamil Nadu – 636 001</p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">⏰</div>
-          <div class="contact-detail">
-            <div class="contact-label">Hours</div>
-            <p>Daily: 6:00 AM – 12:00 Midnight</p>
-          </div>
-        </div>
-      </div>
-      <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" rel="noopener">
-        <span>💬</span> Chat on WhatsApp
-      </a>
-    </div>
-
-    <div class="contact-right" id="contactRight">
-      <div class="contact-map">
-        <div class="map-grid-lines"></div>
-        <div class="map-placeholder">
-          <div class="map-icon">📍</div>
-          <div class="map-text">Vadivasal Turf</div>
-          <div class="map-sub">Salem, Tamil Nadu</div>
-        </div>
-        <div class="map-find-us">
-          <a href="https://maps.google.com/?q=Salem,Tamil+Nadu" target="_blank" rel="noopener" class="map-find-btn">Open in Maps ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ── -->
-<section id="testimonials">
-  <div class="testi-header">
-    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-      <div class="section-divider-line"></div>
-      <span class="section-label">What Players Say</span>
-      <div class="section-divider-line"></div>
-    </div>
-    <h2>Voices from the<br/><em style="font-style:italic;color:var(--gold);">Field</em></h2>
-  </div>
-
-  <div class="testi-grid" id="testiGrid">
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">Absolutely world-class facility. The turf quality is on par with anything I've seen in Chennai or Bangalore. The floodlighting is exceptional — no shadows, no excuses! We now book every Friday evening.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">AR</div>
-        <div>
-          <div class="testi-name">Arun Rajesh</div>
-          <div class="testi-role">Football Captain · Salem FC</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">We host our corporate cricket league here every month. The booking process is seamless, the staff is incredibly professional, and the changing rooms are spotless. Highly recommended for teams!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">PK</div>
-        <div>
-          <div class="testi-name">Priya Krishnan</div>
-          <div class="testi-role">HR Manager · TechCorp Salem</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card">
-      <div class="testi-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-      </div>
-      <p class="testi-text">The volleyball court is a dream. Regulation size, perfect surface, and the atmosphere on weekend evenings is electric. Vadivasal has brought something truly special to Salem's sports scene.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">MV</div>
-        <div>
-          <div class="testi-name">Muthu Vel</div>
-          <div class="testi-role">Volleyball Coach · Salem Sports Academy</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+</div>
+</div>
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-top">
@@ -1871,8 +1611,7 @@
       <h5>Quick Links</h5>
       <ul>
         <li><a href="#hero">Home</a></li>
-        <li><a href="booking.html" style="color: var(--gold);">Book Now</a></li>
-      <li><a href="#about">About Us</a></li>
+        <li><a href="#about">About Us</a></li>
         <li><a href="#sports">Sports</a></li>
         <li><a href="#booking">Book a Court</a></li>
         <li><a href="#pricing">Pricing</a></li>
@@ -1914,115 +1653,6 @@
 <!-- ── JAVASCRIPT ── -->
 <script>
   // ══════════════════════════════════════════════════════════════
-  //  CINEMATIC PRELOADER LOGIC
-  // ══════════════════════════════════════════════════════════════
-  const preloader = document.getElementById('preloader');
-  const preloaderBar = document.getElementById('preloaderBar');
-  const preloaderText = document.getElementById('preloaderText');
-  
-  // ── GSAP & ScrollTrigger ──
-  gsap.registerPlugin(ScrollTrigger);
-  const isMobile = window.innerWidth <= 768;
-
-  function playHeroAnimations() {
-    if (isMobile) {
-      document.querySelector('.sf-brand').style.opacity = '1';
-      document.querySelector('.nav-trigger').style.opacity = '1';
-    } else {
-      gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-      gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
-    }
-
-    gsap.to('#heroBg', {
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      },
-      scale: 1.15,
-      filter: 'brightness(0.6) blur(0px)',
-      ease: 'none'
-    });
-  }
-
-  if (sessionStorage.getItem('hasVisited')) {
-    preloader.style.display = 'none';
-    gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
-    playHeroAnimations();
-  } else {
-    // 1. Show normal preloader, hide real BG
-    gsap.set('#heroBg', { opacity: 0 });
-
-    let pct = 0;
-    const loadingInterval = setInterval(() => {
-      pct += Math.floor(Math.random() * 12) + 4;
-      if (pct > 100) pct = 100;
-      preloaderBar.style.width = pct + '%';
-      preloaderText.textContent = pct + '%';
-      
-      if (pct >= 100) {
-        clearInterval(loadingInterval);
-        
-        // Fade out preloader text and logo
-        gsap.to('.preloader-brand, .preloader-progress-container', { opacity: 0, duration: 0.5 });
-        
-        setTimeout(() => {
-          preloader.style.background = 'transparent';
-          preloader.classList.add('hidden');
-          
-          // 2. Start Puzzle Slice Assembly Animation
-          const sliceCount = 8;
-          const heroSection = document.getElementById('hero');
-          const slices = [];
-
-          // Create slices
-          for (let i = 0; i < sliceCount; i++) {
-            let slice = document.createElement('div');
-            slice.className = 'sf-hero-bg';
-            
-            let startX = (i / sliceCount) * 100;
-            let endX = ((i + 1) / sliceCount) * 100;
-            slice.style.clipPath = `polygon(${startX}% 0%, ${endX + 0.1}% 0%, ${endX + 0.1}% 100%, ${startX}% 100%)`;
-            slice.style.zIndex = 1; 
-            slice.style.opacity = 1;
-            
-            heroSection.insertBefore(slice, document.getElementById('heroBg').nextSibling);
-            slices.push(slice);
-          }
-
-          // Hide hero content temporarily
-          gsap.set('.hero-content', { opacity: 0 });
-          gsap.set('.sf-brand', { opacity: 0 });
-          gsap.set('.nav-trigger', { opacity: 0 });
-
-          // Animate slices falling down
-          gsap.from(slices, {
-            y: -window.innerHeight * 1.5,
-            opacity: 0,
-            duration: 1.8,
-            stagger: 0.15,
-            ease: 'bounce.out',
-            onComplete: () => {
-              // Show real BG and cleanup slices
-              gsap.set('#heroBg', { opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' });
-              slices.forEach(s => s.remove());
-              
-              // Fade out preloader fully just in case
-              preloader.style.display = 'none';
-
-              // Reveal hero content
-              gsap.to('.hero-content', { opacity: 1, duration: 0.5 });
-              
-              sessionStorage.setItem('hasVisited', 'true');
-              playHeroAnimations();
-            }
-          });
-        }, 500);
-      }
-    }, 150);
-  }
-
   // ── CUSTOM CURSOR ──
   const cursor = document.getElementById('cursor');
   let mouseX = 0, mouseY = 0;
