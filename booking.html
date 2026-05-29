@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vadivasal Turf — Premium Sports Experience, Salem</title>
@@ -167,6 +169,97 @@
     }
     .mobile-overlay.show { opacity: 1; pointer-events: all; }
 
+    
+    /* Premium Typography Styles */
+    .premium-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .premium-top-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    
+    .premium-top-line::before,
+    .premium-top-line::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: rgba(168, 255, 120, 0.6); /* Subtle green line */
+    }
+
+    .premium-main-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.05em;
+      /* Gold Metallic Gradient */
+      background: linear-gradient(to bottom, #FFF7D6 0%, #D4AF37 40%, #AA771C 60%, #F3E5AB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+    }
+
+    .premium-sub-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: -0.5rem;
+    }
+
+    .premium-sub-title-wrapper::before,
+    .premium-sub-title-wrapper::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #a8ff78);
+    }
+    .premium-sub-title-wrapper::after {
+      background: linear-gradient(-90deg, transparent, #a8ff78);
+    }
+
+    .premium-sub-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 0.25em;
+      margin: 0;
+      text-transform: uppercase;
+      /* Neon Green Gradient */
+      background: linear-gradient(to bottom, #b4f849 0%, #7cfc00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(124, 252, 0, 0.3));
+    }
+
+    /* Update .hero-content alignment */
+    .hero-content {
+      align-items: center;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .premium-sub-title-wrapper::before,
+      .premium-sub-title-wrapper::after { width: 40px; }
+      .premium-top-line { font-size: 0.5rem; gap: 0.5rem; }
+      .premium-top-line::before, .premium-top-line::after { width: 20px; }
+    }
+
     /* ── SF HERO ── */
     .sf-hero {
       position: relative;
@@ -174,6 +267,10 @@
       height: 100vh;
       overflow: hidden;
       background: var(--dark);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 15vh;
     }
     .sf-hero-bg {
       position: absolute;
@@ -1432,6 +1529,190 @@
     @media (min-width: 1280px) {
       .booking-inner, .pricing-grid { max-width: 1100px; }
     }
+
+/* ── NEW BOOKING THEME SCOPE ── */
+.bk-theme {
+    --green: #1a4731; --green-mid: #2d6a4f; --green-light: #52b788;
+    --gold: #d4a942; --gold-light: #f0c96a;
+    --cream: #faf7f0; --cream-dark: #f0ead8;
+    --dark: #0e1a14; --dark-mid: #162112;
+    --text: #1c2b22; --text-muted: #4a6358;
+    --white: #ffffff; --border: rgba(26,71,49,0.15);
+    --red: #d94035; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    text-align: left;
+}
+.bk-theme *, .bk-theme *::before, .bk-theme *::after { box-sizing: border-box; }
+
+.bk-theme .booking-wrap {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+
+.bk-theme .booking-info {
+  background: var(--dark);
+  padding: 4rem 3rem;
+  display: flex; flex-direction: column;
+}
+.bk-theme .info-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1rem;
+}
+.bk-theme .info-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1; color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.bk-theme .info-title em { font-style: normal; color: var(--gold); }
+.bk-theme .info-sub { color: rgba(250,247,240,0.5); font-size: 0.95rem; margin-bottom: 3rem; }
+
+.bk-theme .info-slots { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+.bk-theme .slot-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.25rem; border-radius: 10px;
+  border: 1px solid rgba(82,183,136,0.12);
+  background: rgba(82,183,136,0.04);
+  transition: border-color var(--transition);
+  cursor: pointer;
+}
+.bk-theme .slot-item.active {
+  border-color: var(--gold);
+  background: rgba(212,169,66,0.06);
+}
+.bk-theme .slot-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green-light); display: block; margin-bottom: 0.2rem;
+}
+.bk-theme .slot-name { color: var(--cream); font-weight: 500; font-size: 0.95rem; }
+.bk-theme .slot-price {
+  margin-left: auto; font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; color: var(--gold); flex-shrink: 0;
+}
+
+.bk-theme .info-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; padding-left: 0; }
+.bk-theme .info-features li {
+  display: flex; align-items: center; gap: 0.6rem;
+  color: rgba(250,247,240,0.5); font-size: 0.85rem;
+}
+.bk-theme .info-features li::before { content: '✓'; color: var(--green-light); font-weight: 700; }
+
+.bk-theme .booking-form-panel {
+  background: var(--cream);
+  padding: 3rem 2.5rem;
+  overflow-y: auto;
+}
+.bk-theme .form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: 0.06em;
+  color: var(--text); margin-bottom: 0.25rem;
+}
+.bk-theme .form-sub { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 2rem; }
+
+.bk-theme .form-group { margin-bottom: 1.25rem; }
+.bk-theme .form-group label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 0.45rem;
+}
+.bk-theme .form-group label .req { color: var(--red); margin-left: 2px; }
+.bk-theme .form-control {
+  width: 100%; padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  background: var(--white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  appearance: none;
+}
+.bk-theme .form-control:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+}
+.bk-theme .form-control.error { border-color: var(--red); }
+.bk-theme .form-control.error:focus { box-shadow: 0 0 0 3px rgba(217,64,53,0.12); }
+.bk-theme select.form-control { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234a6358' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+.bk-theme .field-error { display: none; font-size: 0.78rem; color: var(--red); margin-top: 0.35rem; }
+.bk-theme .field-error.show { display: block; }
+
+.bk-theme .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.bk-theme .form-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+.bk-theme .submit-btn {
+  width: 100%; padding: 1rem;
+  background: var(--green); color: var(--cream);
+  border: none; border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.03em;
+  margin-top: 1.5rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.bk-theme .submit-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+.bk-theme .submit-btn:focus { outline: 2px solid var(--green); outline-offset: 2px; }
+.bk-theme .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.bk-theme .submit-note { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; }
+
+/* Success modal */
+.bk-theme .success-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(14,26,20,0.85);
+  backdrop-filter: blur(4px);
+  z-index: 2000; /* Higher than navbar */
+  align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.bk-theme .success-overlay.show { display: flex; }
+.bk-theme .success-modal {
+  background: var(--cream); border-radius: 16px;
+  padding: 3rem 2.5rem; max-width: 440px; width: 100%;
+  text-align: center;
+  animation: modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+.bk-theme .success-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+.bk-theme .success-modal h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: 0.06em;
+  color: var(--green); margin-bottom: 0.5rem;
+}
+.bk-theme .success-modal p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.bk-theme .success-details {
+  background: rgba(26,71,49,0.06); border-radius: 10px;
+  padding: 1.25rem; margin-bottom: 1.75rem;
+  text-align: left; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.bk-theme .success-detail { display: flex; justify-content: space-between; font-size: 0.875rem; }
+.bk-theme .success-detail span:first-child { color: var(--text-muted); }
+.bk-theme .success-detail span:last-child { font-weight: 600; color: var(--text); }
+.bk-theme .close-btn {
+  background: var(--green); color: var(--cream);
+  border: none; border-radius: 8px;
+  padding: 0.85rem 2rem; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background var(--transition);
+}
+.bk-theme .close-btn:hover { background: var(--green-mid); }
+.bk-theme .close-btn:focus { outline: 2px solid var(--green); outline-offset: 2px; }
+
+@media (max-width: 900px) {
+  .bk-theme .booking-wrap { grid-template-columns: 1fr; }
+  .bk-theme .booking-info { padding: 2.5rem 1.5rem; }
+  .bk-theme .booking-form-panel { padding: 2rem 1.5rem; }
+}
+@media (max-width: 500px) {
+  .bk-theme .form-row { grid-template-columns: 1fr; }
+  .bk-theme .success-modal { padding: 2rem 1.5rem; }
+}
+
 </style>
 </head>
 <body>
@@ -1457,13 +1738,13 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <nav class="mobile-nav" id="mobileNav">
   <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about" onclick="toggleNav()">About</a></li>
-      <li><a href="index.html#pricing" onclick="toggleNav()">Pricing</a></li>
-      <li><a href="index.html#sports" onclick="toggleNav()">Sports</a></li>
-      <li><a href="index.html#stats" onclick="toggleNav()">Stats</a></li>
-      <li><a href="index.html#contact" onclick="toggleNav()">Contact</a></li>
-      <li><a href="index.html#testimonials" onclick="toggleNav()">Reviews</a></li>
+      <li><a href="booking.html" style="color: var(--gold);">Book Now</a></li>
+      <li><a href="#about" onclick="toggleNav()">About</a></li>
+      <li><a href="#pricing" onclick="toggleNav()">Pricing</a></li>
+      <li><a href="#sports" onclick="toggleNav()">Sports</a></li>
+      <li><a href="#stats" onclick="toggleNav()">Stats</a></li>
+      <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+      <li><a href="#testimonials" onclick="toggleNav()">Reviews</a></li>
     </ul>
 </nav>
 
@@ -1485,96 +1766,375 @@
   </div>
 </header>
 
-
-<!-- ── BOOKING PAGE WRAPPER ── -->
-<div style="padding-top: 100px; padding-bottom: 50px; min-height: 80vh; display: flex; align-items: center; width: 100%;">
-<div style="width: 100%;">
-<!-- ── BOOKING FORM ── -->
-<section id="booking">
-  <div class="booking-inner">
-    <div class="booking-header">
-      <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
-        <div class="section-divider-line"></div>
-        <span class="section-label">Reserve Your Court</span>
-        <div class="section-divider-line"></div>
+<!-- ── SF HERO ── -->
+<section id="hero" class="sf-hero">
+    <div id="heroBg" class="sf-hero-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    
+    <div class="hero-content">
+      <div class="premium-logo-container">
+        <div class="premium-top-line">Premium Turf Experience</div>
+        <h1 class="premium-main-title">VADIVASAL</h1>
+        <div class="premium-sub-title-wrapper">
+          <h2 class="premium-sub-title">TURF</h2>
+        </div>
       </div>
-      <h2>Book Your<br/><em style="font-style:italic;color:var(--gold);">Session</em></h2>
-      <p>Secure your slot in under 60 seconds. We'll confirm via WhatsApp.</p>
+      <a href="booking.html" class="hero-cta" style="margin-top: 1rem;">Book Now</a>
     </div>
 
-    <div class="booking-form" id="bookingForm">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Your name" autocomplete="name" />
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-text">Scroll</div>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Cricket</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Football</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Volleyball</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Premium Turf</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Salem</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Floodlit Courts</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Book Online</span><span class="marquee-item marquee-dot">•</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Cricket</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Football</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Volleyball</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Premium Turf</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Salem</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Floodlit Courts</span><span class="marquee-item marquee-dot">•</span>
+    <span class="marquee-item">Book Online</span><span class="marquee-item marquee-dot">•</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-top">
+    <div class="about-left" id="aboutLeft">
+      <div class="about-est">EST.<br/>2024</div>
+      <div class="about-est-label">Salem's Finest Sports Destination</div>
+    </div>
+    <div class="about-text-col" id="aboutRight">
+      <div class="section-divider">
+        <div class="section-divider-line"></div>
+        <span class="section-label">Our Story</span>
+      </div>
+      <h2>A New Standard<br/>For Sports in Salem</h2>
+      <div class="divider"></div>
+      <p>Vadivasal Turf was born from a simple belief: every athlete, amateur or elite, deserves a world-class stage to perform. We set out to create not just a sports facility, but an experience that elevates your game.</p>
+      <p>Nestled in Salem, Tamil Nadu, our premium grounds offer state-of-the-art infrastructure, meticulous maintenance, and an atmosphere that brings out the champion in you.</p>
+    </div>
+  </div>
+
+  <div class="features-grid" id="featuresGrid">
+    <div class="feature-box">
+      <div class="feature-icon">💡</div>
+      <h4>Floodlit Courts</h4>
+      <p>Play day or night with our high-intensity LED floodlighting system designed for professional clarity.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">🌿</div>
+      <h4>Premium Turf</h4>
+      <p>FIFA-grade artificial grass maintained to international standards for optimal performance and safety.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">🚿</div>
+      <h4>Changing Rooms</h4>
+      <p>Spacious, clean, and well-equipped changing rooms and shower facilities for your comfort.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">🅿️</div>
+      <h4>Free Parking</h4>
+      <p>Ample complimentary parking space for all visitors — no hassle, just game time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing">
+  <div class="pricing-header">
+    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+      <div class="section-divider-line"></div>
+      <span class="section-label">Transparent Pricing</span>
+      <div class="section-divider-line"></div>
+    </div>
+    <h2>Simple. Honest.<br/><em style="font-style:italic;color:var(--gold);">Pricing.</em></h2>
+  </div>
+
+  <div class="pricing-grid" id="pricingGrid">
+    <!-- Morning -->
+    <div class="price-card">
+      <div class="price-time">Morning Slot</div>
+      <h3>Dawn Session</h3>
+      <div class="price-amount">
+        <span class="currency">₹</span>
+        <span class="number" data-count="800">800</span>
+        <span class="per"> / hour</span>
+      </div>
+      <div class="price-divider"></div>
+      <ul class="price-amenities">
+        <li>6:00 AM – 12:00 PM</li>
+        <li>All three sports available</li>
+        <li>Free parking included</li>
+        <li>Changing room access</li>
+        <li>Basic equipment available</li>
+      </ul>
+      <a href="#booking" class="price-btn">Book Morning</a>
+    </div>
+
+    <!-- Evening — Popular -->
+    <div class="price-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-time">Evening Slot</div>
+      <h3>Golden Hour</h3>
+      <div class="price-amount">
+        <span class="currency">₹</span>
+        <span class="number" data-count="1200">1200</span>
+        <span class="per"> / hour</span>
+      </div>
+      <div class="price-divider"></div>
+      <ul class="price-amenities">
+        <li>2:00 PM – 8:00 PM</li>
+        <li>All three sports available</li>
+        <li>Floodlights included</li>
+        <li>Premium equipment rental</li>
+        <li>Changing room + shower</li>
+      </ul>
+      <a href="#booking" class="price-btn">Book Evening</a>
+    </div>
+
+    <!-- Night -->
+    <div class="price-card">
+      <div class="price-time">Night Slot</div>
+      <h3>Night Game</h3>
+      <div class="price-amount">
+        <span class="currency">₹</span>
+        <span class="number" data-count="1500">1500</span>
+        <span class="per"> / hour</span>
+      </div>
+      <div class="price-divider"></div>
+      <ul class="price-amenities">
+        <li>8:00 PM – 12:00 AM</li>
+        <li>All three sports available</li>
+        <li>High-intensity floodlights</li>
+        <li>Full equipment set</li>
+        <li>Priority support line</li>
+      </ul>
+      <a href="#booking" class="price-btn">Book Night</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPORTS ── -->
+<section id="sports">
+  <div class="sports-header">
+    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+      <div class="section-divider-line"></div>
+      <span class="section-label">Our Courts</span>
+      <div class="section-divider-line"></div>
+    </div>
+    <h2>Choose Your<br/><em style="font-style:italic;color:var(--gold);">Arena</em></h2>
+  </div>
+
+  <div class="sports-grid" id="sportsGrid">
+    <!-- Cricket -->
+    <div class="sport-card sport-card-cricket">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">🏏</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">01 / Cricket</div>
+          <div class="sport-card-name">Cricket</div>
+          <div class="sport-card-detail">Full-length pitch · Batting nets · Floodlit · Up to 22 players</div>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="+91 00000 00000" autocomplete="tel" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="you@email.com" autocomplete="email" />
-        </div>
-        <div class="form-group">
-          <label for="sport">Select Sport</label>
-          <div class="select-wrapper">
-            <select id="sport">
-              <option value="" disabled selected>Choose a sport</option>
-              <option value="cricket">Cricket</option>
-              <option value="football">Football (5-a-side)</option>
-              <option value="football7">Football (7-a-side)</option>
-              <option value="volleyball">Volleyball</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="bookDate">Select Date</label>
-          <input type="date" id="bookDate" />
-        </div>
-        <div class="form-group">
-          <label for="timeSlot">Time Slot</label>
-          <div class="select-wrapper">
-            <select id="timeSlot">
-              <option value="" disabled selected>Choose a time</option>
-              <option value="0600">6:00 AM</option>
-              <option value="0800">8:00 AM</option>
-              <option value="1000">10:00 AM</option>
-              <option value="1200">12:00 PM</option>
-              <option value="1400">2:00 PM</option>
-              <option value="1600">4:00 PM</option>
-              <option value="1800">6:00 PM</option>
-              <option value="2000">8:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group full">
-          <label for="players">Number of Players</label>
-          <input type="number" id="players" placeholder="e.g. 10" min="2" max="30" />
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Available All Day</span>
         </div>
       </div>
-      <div class="form-submit">
-        <button class="btn-submit" id="submitBtn" type="button">
-          <span>Confirm Booking</span>
-        </button>
+    </div>
+
+    <!-- Football -->
+    <div class="sport-card sport-card-football">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">⚽</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">02 / Football</div>
+          <div class="sport-card-name">Football</div>
+          <div class="sport-card-detail">5-a-side · 7-a-side · FIFA turf · Goals included · Scoreboard</div>
+        </div>
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Most Popular</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volleyball -->
+    <div class="sport-card sport-card-volleyball">
+      <div class="sport-card-bg"></div>
+      <div class="sport-card-overlay"></div>
+      <div class="sport-deco">🏐</div>
+      <div class="sport-card-content">
+        <div class="sport-card-left">
+          <div class="sport-card-num">03 / Volleyball</div>
+          <div class="sport-card-name">Volleyball</div>
+          <div class="sport-card-detail">Regulation net · Sand & turf court · Up to 12 players</div>
+        </div>
+        <div class="sport-card-right">
+          <a href="#booking" class="sport-book-btn">Book This Sport</a>
+          <span class="sport-tag">Great for Teams</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Success Popup -->
-<div class="success-popup" id="successPopup">
-  <div class="success-box">
-    <div class="success-icon">✦</div>
-    <h3>Booking Confirmed!</h3>
-    <p>Thank you for choosing Vadivasal Turf. We'll send your confirmation details to your WhatsApp and email shortly. See you on the field!</p>
-    <button class="success-close" id="successClose">Close</button>
+<!-- ── STATS ── -->
+<section id="stats">
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-item">
+      <div class="stat-number" data-target="500" id="stat1">0</div>
+      <div class="stat-label">Matches Hosted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="1000" id="stat2">0</div>
+      <div class="stat-label">Happy Players</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="3" id="stat3">0</div>
+      <div class="stat-label">Sports Available</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" id="stat4">5★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
   </div>
-</div>
+</section>
 
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left" id="contactLeft">
+      <div class="section-divider">
+        <div class="section-divider-line"></div>
+        <span class="section-label">Get In Touch</span>
+      </div>
+      <h2>Find Us in<br/>the Heart of Salem</h2>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail">
+            <div class="contact-label">Phone</div>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-detail">
+            <div class="contact-label">Email</div>
+            <a href="mailto:info@vadivalsalturf.in">info@vadivalsalturf.in</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <div class="contact-label">Address</div>
+            <p>Vadivasal Turf, Near Periyar University Road,<br/>Salem, Tamil Nadu – 636 001</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div class="contact-detail">
+            <div class="contact-label">Hours</div>
+            <p>Daily: 6:00 AM – 12:00 Midnight</p>
+          </div>
+        </div>
+      </div>
+      <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" rel="noopener">
+        <span>💬</span> Chat on WhatsApp
+      </a>
+    </div>
 
-</div>
-</div>
+    <div class="contact-right" id="contactRight">
+      <div class="contact-map">
+        <div class="map-grid-lines"></div>
+        <div class="map-placeholder">
+          <div class="map-icon">📍</div>
+          <div class="map-text">Vadivasal Turf</div>
+          <div class="map-sub">Salem, Tamil Nadu</div>
+        </div>
+        <div class="map-find-us">
+          <a href="https://maps.google.com/?q=Salem,Tamil+Nadu" target="_blank" rel="noopener" class="map-find-btn">Open in Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testi-header">
+    <div class="section-divider" style="justify-content:center; margin-bottom:0.5rem;">
+      <div class="section-divider-line"></div>
+      <span class="section-label">What Players Say</span>
+      <div class="section-divider-line"></div>
+    </div>
+    <h2>Voices from the<br/><em style="font-style:italic;color:var(--gold);">Field</em></h2>
+  </div>
+
+  <div class="testi-grid" id="testiGrid">
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">Absolutely world-class facility. The turf quality is on par with anything I've seen in Chennai or Bangalore. The floodlighting is exceptional — no shadows, no excuses! We now book every Friday evening.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div>
+          <div class="testi-name">Arun Rajesh</div>
+          <div class="testi-role">Football Captain · Salem FC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">We host our corporate cricket league here every month. The booking process is seamless, the staff is incredibly professional, and the changing rooms are spotless. Highly recommended for teams!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PK</div>
+        <div>
+          <div class="testi-name">Priya Krishnan</div>
+          <div class="testi-role">HR Manager · TechCorp Salem</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <p class="testi-text">The volleyball court is a dream. Regulation size, perfect surface, and the atmosphere on weekend evenings is electric. Vadivasal has brought something truly special to Salem's sports scene.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MV</div>
+        <div>
+          <div class="testi-name">Muthu Vel</div>
+          <div class="testi-role">Volleyball Coach · Salem Sports Academy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-top">
@@ -1595,7 +2155,8 @@
       <h5>Quick Links</h5>
       <ul>
         <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="booking.html" style="color: var(--gold);">Book Now</a></li>
+      <li><a href="#about">About Us</a></li>
         <li><a href="#sports">Sports</a></li>
         <li><a href="#booking">Book a Court</a></li>
         <li><a href="#pricing">Pricing</a></li>
@@ -1637,7 +2198,258 @@
 <!-- ── JAVASCRIPT ── -->
 <script>
   // ══════════════════════════════════════════════════════════════
+  //  CINEMATIC PRELOADER LOGIC
+  // ══════════════════════════════════════════════════════════════
+  const preloader = document.getElementById('preloader');
+  const preloaderBar = document.getElementById('preloaderBar');
+  const preloaderText = document.getElementById('preloaderText');
+  
+  // ── GSAP & ScrollTrigger ──
+  gsap.registerPlugin(ScrollTrigger);
+  const isMobile = window.innerWidth <= 768;
+
+  function playHeroAnimations() {
+    gsap.to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 1.5, ease: 'power2.out' });
+    if (isMobile) {
+      document.querySelector('.sf-brand').style.opacity = '1';
+      document.querySelector('.nav-trigger').style.opacity = '1';
+    } else {
+      gsap.fromTo('.sf-brand',    { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.nav-trigger', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power3.out', delay: 0.2 });
+    }
+
+    gsap.to('#heroBg', {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      },
+      scale: 1.15,
+      filter: 'brightness(0.6) blur(0px)',
+      ease: 'none'
+    });
+  }
+
+  if (sessionStorage.getItem('hasVisited')) {
+    preloader.style.display = 'none';
+    gsap.set('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)' });
+    playHeroAnimations();
+  } else {
+    // 1. Show normal preloader, hide real BG
+    gsap.set('#heroBg', { opacity: 0 });
+
+    let pct = 0;
+    const loadingInterval = setInterval(() => {
+      pct += Math.floor(Math.random() * 12) + 4;
+      if (pct > 100) pct = 100;
+      preloaderBar.style.width = pct + '%';
+      preloaderText.textContent = pct + '%';
+      
+      if (pct >= 100) {
+        clearInterval(loadingInterval);
+        
+        // Fade out preloader text and logo
+        gsap.to('.preloader-brand, .preloader-progress-container', { opacity: 0, duration: 0.5 });
+        
+        setTimeout(() => {
+          preloader.style.background = 'transparent';
+          preloader.classList.add('hidden');
+          preloader.style.display = 'none';
+          
+          // 2. Cinematic Universe Reveal Animation
+          
+          // Initial state of hero background (zoomed in, slightly blurred)
+          gsap.set('#heroBg', { scale: 1.4, filter: 'brightness(0.2) blur(10px)', opacity: 1 });
+          
+          // Hide hero content initially
+          gsap.set('.hero-content', { opacity: 0, filter: 'blur(20px)', scale: 0.8 });
+          gsap.set('.sf-brand', { opacity: 0 });
+          gsap.set('.nav-trigger', { opacity: 0 });
+
+          const heroSection = document.getElementById('hero');
+          
+          // Create cinematic black bars
+          const topBar = document.createElement('div');
+          const bottomBar = document.createElement('div');
+          const lightSlit = document.createElement('div');
+          
+          topBar.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
+          bottomBar.style.cssText = 'position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: #000; z-index: 50;';
+          
+          // The glowing slit
+          lightSlit.style.cssText = 'position: absolute; top: 50%; left: 50%; width: 0%; height: 2px; background: rgba(201,168,76,0.8); box-shadow: 0 0 20px rgba(201,168,76,0.8), 0 0 40px rgba(201,168,76,0.4); transform: translate(-50%, -50%); z-index: 51;';
+          
+          heroSection.appendChild(topBar);
+          heroSection.appendChild(bottomBar);
+          heroSection.appendChild(lightSlit);
+
+          // Master Timeline for Cinematic Reveal
+          const tl = gsap.timeline({
+            onComplete: () => {
+              topBar.remove();
+              bottomBar.remove();
+              lightSlit.remove();
+              sessionStorage.setItem('hasVisited', 'true');
+              playHeroAnimations();
+            }
+          });
+          
+          // Step 1: Delay briefly for dramatic tension
+          tl.to({}, { duration: 0.5 })
+            
+            // Step 2: Slit expands horizontally
+            .to(lightSlit, { width: '100%', duration: 1.5, ease: 'power4.inOut' })
+            
+            // Step 3: Slit gets brighter
+            .to(lightSlit, { height: '6px', background: '#fff', duration: 0.3, ease: 'power2.out' }, "-=0.2")
+            
+            // Step 4: BOOM! Black bars open up, slit disappears, turf zooms out slowly
+            .to(lightSlit, { opacity: 0, duration: 0.1 })
+            .to(topBar, { top: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
+            .to(bottomBar, { bottom: '-50%', duration: 2.5, ease: 'power3.inOut' }, "reveal")
+            .to('#heroBg', { scale: 1, filter: 'brightness(1) blur(0px)', duration: 4, ease: 'power2.out' }, "reveal")
+            
+            // Step 5: Title fades in with blur effect
+            .to('.hero-content', { opacity: 1, filter: 'blur(0px)', scale: 1, duration: 2, ease: 'power2.out' }, "reveal+=0.3");
+
+        }, 500);
+      }
+    }, 150);
+  }
+
    
+
+  
+  /* ── Booking Form Logic ── */
+  const dateInput = document.getElementById('bookDate');
+  if (dateInput) {
+      const today = new Date();
+      dateInput.min = today.toISOString().split('T')[0];
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const slotParam = urlParams.get('slot');
+      const sportParam = urlParams.get('sport');
+      
+      document.querySelectorAll('.slot-item').forEach(item => {
+        if (slotParam && item.dataset.slot === slotParam) {
+          item.classList.add('active');
+        }
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.slot-item').forEach(s => s.classList.remove('active'));
+          item.classList.add('active');
+          const slotMap = { morning: '6:00 AM', evening: '2:00 PM', night: '8:00 PM' };
+          const sel = document.getElementById('timeSlot');
+          if (slotMap[item.dataset.slot]) sel.value = slotMap[item.dataset.slot];
+        });
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }});
+      });
+      
+      if (sportParam) {
+        const sportSelect = document.getElementById('sport');
+        if (sportSelect) {
+            for (const opt of sportSelect.options) {
+              if (opt.value === sportParam) { sportSelect.value = sportParam; break; }
+            }
+        }
+      }
+      
+      function showError(id, show) {
+        const input = document.getElementById(id);
+        const err = document.getElementById(id + '-error');
+        if (!input || !err) return;
+        if (show) {
+          input.classList.add('error');
+          err.classList.add('show');
+          input.setAttribute('aria-invalid', 'true');
+        } else {
+          input.classList.remove('error');
+          err.classList.remove('show');
+          input.removeAttribute('aria-invalid');
+        }
+        return !show;
+      }
+      
+      function validateForm() {
+        const name = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const sport = document.getElementById('sport').value;
+        const date = document.getElementById('bookDate').value;
+        const time = document.getElementById('timeSlot').value;
+        const players = parseInt(document.getElementById('players').value);
+      
+        let valid = true;
+        valid &= showError('fullName', name.length < 2);
+        valid &= showError('phone', !/^[0-9+\s\-]{10,14}$/.test(phone));
+        if (email) valid &= showError('email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+        valid &= showError('sport', !sport);
+        const selectedDate = new Date(date);
+        const minDate = new Date(); minDate.setHours(0,0,0,0);
+        valid &= showError('bookDate', !date || selectedDate < minDate);
+        valid &= showError('timeSlot', !time);
+        valid &= showError('players', !players || players < 1 || players > 22);
+        return !!valid;
+      }
+      
+      ['fullName','phone','email','sport','bookDate','timeSlot','players'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('blur', () => validateForm());
+      });
+      
+      const bookingForm = document.getElementById('bookingForm');
+      if (bookingForm) {
+          bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!validateForm()) {
+              const firstError = document.querySelector('.form-control.error');
+              if (firstError) firstError.focus();
+              return;
+            }
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Processing…';
+          
+            setTimeout(() => {
+              const name = document.getElementById('fullName').value.trim();
+              const sport = document.getElementById('sport');
+              const sportText = sport.options[sport.selectedIndex].text;
+              const date = document.getElementById('bookDate').value;
+              const time = document.getElementById('timeSlot').value;
+              const players = document.getElementById('players').value;
+          
+              const details = document.getElementById('successDetails');
+              details.innerHTML = `
+                <div class="success-detail"><span>Name</span><span>${name}</span></div>
+                <div class="success-detail"><span>Sport</span><span>${sportText}</span></div>
+                <div class="success-detail"><span>Date</span><span>${new Date(date + 'T00:00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'long',year:'numeric'})}</span></div>
+                <div class="success-detail"><span>Time</span><span>${time}</span></div>
+                <div class="success-detail"><span>Players</span><span>${players}</span></div>
+              `;
+              document.getElementById('successOverlay').classList.add('show');
+              document.getElementById('closeModal').focus();
+              btn.disabled = false;
+              btn.textContent = 'Confirm Booking →';
+            }, 1000);
+          });
+      }
+      
+      const closeModal = document.getElementById('closeModal');
+      if (closeModal) {
+          closeModal.addEventListener('click', () => {
+            document.getElementById('successOverlay').classList.remove('show');
+            document.getElementById('bookingForm').reset();
+            document.querySelectorAll('.slot-item').forEach(s => s.classList.remove('active'));
+          });
+      }
+      
+      const successOverlay = document.getElementById('successOverlay');
+      if (successOverlay) {
+          successOverlay.addEventListener('keydown', e => {
+            if (e.key === 'Escape') document.getElementById('closeModal').click();
+          });
+      }
+  }
 
   // ── NAVBAR SCROLL ──
   const navbar = document.getElementById('navbar');

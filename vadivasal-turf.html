@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1528,6 +1529,190 @@
     @media (min-width: 1280px) {
       .booking-inner, .pricing-grid { max-width: 1100px; }
     }
+
+/* ── NEW BOOKING THEME SCOPE ── */
+.bk-theme {
+    --green: #1a4731; --green-mid: #2d6a4f; --green-light: #52b788;
+    --gold: #d4a942; --gold-light: #f0c96a;
+    --cream: #faf7f0; --cream-dark: #f0ead8;
+    --dark: #0e1a14; --dark-mid: #162112;
+    --text: #1c2b22; --text-muted: #4a6358;
+    --white: #ffffff; --border: rgba(26,71,49,0.15);
+    --red: #d94035; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    line-height: 1.7;
+    text-align: left;
+}
+.bk-theme *, .bk-theme *::before, .bk-theme *::after { box-sizing: border-box; }
+
+.bk-theme .booking-wrap {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+
+.bk-theme .booking-info {
+  background: var(--dark);
+  padding: 4rem 3rem;
+  display: flex; flex-direction: column;
+}
+.bk-theme .info-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1rem;
+}
+.bk-theme .info-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1; color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.bk-theme .info-title em { font-style: normal; color: var(--gold); }
+.bk-theme .info-sub { color: rgba(250,247,240,0.5); font-size: 0.95rem; margin-bottom: 3rem; }
+
+.bk-theme .info-slots { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+.bk-theme .slot-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.25rem; border-radius: 10px;
+  border: 1px solid rgba(82,183,136,0.12);
+  background: rgba(82,183,136,0.04);
+  transition: border-color var(--transition);
+  cursor: pointer;
+}
+.bk-theme .slot-item.active {
+  border-color: var(--gold);
+  background: rgba(212,169,66,0.06);
+}
+.bk-theme .slot-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green-light); display: block; margin-bottom: 0.2rem;
+}
+.bk-theme .slot-name { color: var(--cream); font-weight: 500; font-size: 0.95rem; }
+.bk-theme .slot-price {
+  margin-left: auto; font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; color: var(--gold); flex-shrink: 0;
+}
+
+.bk-theme .info-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; padding-left: 0; }
+.bk-theme .info-features li {
+  display: flex; align-items: center; gap: 0.6rem;
+  color: rgba(250,247,240,0.5); font-size: 0.85rem;
+}
+.bk-theme .info-features li::before { content: '✓'; color: var(--green-light); font-weight: 700; }
+
+.bk-theme .booking-form-panel {
+  background: var(--cream);
+  padding: 3rem 2.5rem;
+  overflow-y: auto;
+}
+.bk-theme .form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; letter-spacing: 0.06em;
+  color: var(--text); margin-bottom: 0.25rem;
+}
+.bk-theme .form-sub { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 2rem; }
+
+.bk-theme .form-group { margin-bottom: 1.25rem; }
+.bk-theme .form-group label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 0.45rem;
+}
+.bk-theme .form-group label .req { color: var(--red); margin-left: 2px; }
+.bk-theme .form-control {
+  width: 100%; padding: 0.8rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; color: var(--text);
+  background: var(--white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  appearance: none;
+}
+.bk-theme .form-control:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+}
+.bk-theme .form-control.error { border-color: var(--red); }
+.bk-theme .form-control.error:focus { box-shadow: 0 0 0 3px rgba(217,64,53,0.12); }
+.bk-theme select.form-control { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234a6358' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+.bk-theme .field-error { display: none; font-size: 0.78rem; color: var(--red); margin-top: 0.35rem; }
+.bk-theme .field-error.show { display: block; }
+
+.bk-theme .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.bk-theme .form-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+.bk-theme .submit-btn {
+  width: 100%; padding: 1rem;
+  background: var(--green); color: var(--cream);
+  border: none; border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.03em;
+  margin-top: 1.5rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.bk-theme .submit-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+.bk-theme .submit-btn:focus { outline: 2px solid var(--green); outline-offset: 2px; }
+.bk-theme .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.bk-theme .submit-note { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; }
+
+/* Success modal */
+.bk-theme .success-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(14,26,20,0.85);
+  backdrop-filter: blur(4px);
+  z-index: 2000; /* Higher than navbar */
+  align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.bk-theme .success-overlay.show { display: flex; }
+.bk-theme .success-modal {
+  background: var(--cream); border-radius: 16px;
+  padding: 3rem 2.5rem; max-width: 440px; width: 100%;
+  text-align: center;
+  animation: modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+.bk-theme .success-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+.bk-theme .success-modal h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem; letter-spacing: 0.06em;
+  color: var(--green); margin-bottom: 0.5rem;
+}
+.bk-theme .success-modal p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.bk-theme .success-details {
+  background: rgba(26,71,49,0.06); border-radius: 10px;
+  padding: 1.25rem; margin-bottom: 1.75rem;
+  text-align: left; display: flex; flex-direction: column; gap: 0.6rem;
+}
+.bk-theme .success-detail { display: flex; justify-content: space-between; font-size: 0.875rem; }
+.bk-theme .success-detail span:first-child { color: var(--text-muted); }
+.bk-theme .success-detail span:last-child { font-weight: 600; color: var(--text); }
+.bk-theme .close-btn {
+  background: var(--green); color: var(--cream);
+  border: none; border-radius: 8px;
+  padding: 0.85rem 2rem; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background var(--transition);
+}
+.bk-theme .close-btn:hover { background: var(--green-mid); }
+.bk-theme .close-btn:focus { outline: 2px solid var(--green); outline-offset: 2px; }
+
+@media (max-width: 900px) {
+  .bk-theme .booking-wrap { grid-template-columns: 1fr; }
+  .bk-theme .booking-info { padding: 2.5rem 1.5rem; }
+  .bk-theme .booking-form-panel { padding: 2rem 1.5rem; }
+}
+@media (max-width: 500px) {
+  .bk-theme .form-row { grid-template-columns: 1fr; }
+  .bk-theme .success-modal { padding: 2rem 1.5rem; }
+}
+
 </style>
 </head>
 <body>
@@ -2134,6 +2319,137 @@
   }
 
    
+
+  
+  /* ── Booking Form Logic ── */
+  const dateInput = document.getElementById('bookDate');
+  if (dateInput) {
+      const today = new Date();
+      dateInput.min = today.toISOString().split('T')[0];
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const slotParam = urlParams.get('slot');
+      const sportParam = urlParams.get('sport');
+      
+      document.querySelectorAll('.slot-item').forEach(item => {
+        if (slotParam && item.dataset.slot === slotParam) {
+          item.classList.add('active');
+        }
+        item.addEventListener('click', () => {
+          document.querySelectorAll('.slot-item').forEach(s => s.classList.remove('active'));
+          item.classList.add('active');
+          const slotMap = { morning: '6:00 AM', evening: '2:00 PM', night: '8:00 PM' };
+          const sel = document.getElementById('timeSlot');
+          if (slotMap[item.dataset.slot]) sel.value = slotMap[item.dataset.slot];
+        });
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }});
+      });
+      
+      if (sportParam) {
+        const sportSelect = document.getElementById('sport');
+        if (sportSelect) {
+            for (const opt of sportSelect.options) {
+              if (opt.value === sportParam) { sportSelect.value = sportParam; break; }
+            }
+        }
+      }
+      
+      function showError(id, show) {
+        const input = document.getElementById(id);
+        const err = document.getElementById(id + '-error');
+        if (!input || !err) return;
+        if (show) {
+          input.classList.add('error');
+          err.classList.add('show');
+          input.setAttribute('aria-invalid', 'true');
+        } else {
+          input.classList.remove('error');
+          err.classList.remove('show');
+          input.removeAttribute('aria-invalid');
+        }
+        return !show;
+      }
+      
+      function validateForm() {
+        const name = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const sport = document.getElementById('sport').value;
+        const date = document.getElementById('bookDate').value;
+        const time = document.getElementById('timeSlot').value;
+        const players = parseInt(document.getElementById('players').value);
+      
+        let valid = true;
+        valid &= showError('fullName', name.length < 2);
+        valid &= showError('phone', !/^[0-9+\s\-]{10,14}$/.test(phone));
+        if (email) valid &= showError('email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+        valid &= showError('sport', !sport);
+        const selectedDate = new Date(date);
+        const minDate = new Date(); minDate.setHours(0,0,0,0);
+        valid &= showError('bookDate', !date || selectedDate < minDate);
+        valid &= showError('timeSlot', !time);
+        valid &= showError('players', !players || players < 1 || players > 22);
+        return !!valid;
+      }
+      
+      ['fullName','phone','email','sport','bookDate','timeSlot','players'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('blur', () => validateForm());
+      });
+      
+      const bookingForm = document.getElementById('bookingForm');
+      if (bookingForm) {
+          bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!validateForm()) {
+              const firstError = document.querySelector('.form-control.error');
+              if (firstError) firstError.focus();
+              return;
+            }
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Processing…';
+          
+            setTimeout(() => {
+              const name = document.getElementById('fullName').value.trim();
+              const sport = document.getElementById('sport');
+              const sportText = sport.options[sport.selectedIndex].text;
+              const date = document.getElementById('bookDate').value;
+              const time = document.getElementById('timeSlot').value;
+              const players = document.getElementById('players').value;
+          
+              const details = document.getElementById('successDetails');
+              details.innerHTML = `
+                <div class="success-detail"><span>Name</span><span>${name}</span></div>
+                <div class="success-detail"><span>Sport</span><span>${sportText}</span></div>
+                <div class="success-detail"><span>Date</span><span>${new Date(date + 'T00:00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'long',year:'numeric'})}</span></div>
+                <div class="success-detail"><span>Time</span><span>${time}</span></div>
+                <div class="success-detail"><span>Players</span><span>${players}</span></div>
+              `;
+              document.getElementById('successOverlay').classList.add('show');
+              document.getElementById('closeModal').focus();
+              btn.disabled = false;
+              btn.textContent = 'Confirm Booking →';
+            }, 1000);
+          });
+      }
+      
+      const closeModal = document.getElementById('closeModal');
+      if (closeModal) {
+          closeModal.addEventListener('click', () => {
+            document.getElementById('successOverlay').classList.remove('show');
+            document.getElementById('bookingForm').reset();
+            document.querySelectorAll('.slot-item').forEach(s => s.classList.remove('active'));
+          });
+      }
+      
+      const successOverlay = document.getElementById('successOverlay');
+      if (successOverlay) {
+          successOverlay.addEventListener('keydown', e => {
+            if (e.key === 'Escape') document.getElementById('closeModal').click();
+          });
+      }
+  }
 
   // ── NAVBAR SCROLL ──
   const navbar = document.getElementById('navbar');
