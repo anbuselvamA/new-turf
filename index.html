@@ -1997,6 +1997,161 @@
   </div>
 </section>
 
+
+<!-- ── BOOKING ── -->
+<section id="booking" class="bk-theme">
+<div class="booking-wrap">
+  <!-- Info Panel -->
+  <aside class="booking-info" aria-label="Booking information and slot options">
+    <span class="info-label">Reserve Your Court</span>
+    <h1 class="info-title">Book Your<br><em>Session</em></h1>
+    <p class="info-sub">Secure your slot in under 60 seconds. Confirmation via WhatsApp.</p>
+ 
+    <div class="info-slots" role="list" aria-label="Available time slots">
+      <div class="slot-item" role="listitem" data-slot="morning" tabindex="0" aria-label="Morning slot, 6 AM to 12 PM, 800 rupees per hour">
+        <div>
+          <span class="slot-time">Morning · 6:00 AM – 12:00 PM</span>
+          <span class="slot-name">Dawn Session</span>
+        </div>
+        <span class="slot-price" aria-hidden="true">₹800/hr</span>
+      </div>
+      <div class="slot-item" role="listitem" data-slot="evening" tabindex="0" aria-label="Evening slot, 2 PM to 8 PM, 1200 rupees per hour">
+        <div>
+          <span class="slot-time">Evening · 2:00 PM – 8:00 PM</span>
+          <span class="slot-name">Golden Hour ★ Most Popular</span>
+        </div>
+        <span class="slot-price" aria-hidden="true">₹1200/hr</span>
+      </div>
+      <div class="slot-item" role="listitem" data-slot="night" tabindex="0" aria-label="Night slot, 8 PM to 12 AM, 1500 rupees per hour">
+        <div>
+          <span class="slot-time">Night · 8:00 PM – 12:00 AM</span>
+          <span class="slot-name">Night Game</span>
+        </div>
+        <span class="slot-price" aria-hidden="true">₹1500/hr</span>
+      </div>
+    </div>
+ 
+    <ul class="info-features" aria-label="Booking guarantees">
+      <li>Instant WhatsApp confirmation</li>
+      <li>Free cancellation up to 24 hours before</li>
+      <li>Floodlit courts available all slots</li>
+      <li>Changing rooms &amp; parking included</li>
+      <li>Equipment available on request</li>
+    </ul>
+  </aside>
+ 
+  <!-- Form Panel -->
+  <section class="booking-form-panel" id="booking-form" aria-label="Booking form">
+    <h2 class="form-title">Your Details</h2>
+    <p class="form-sub">Fields marked <span style="color:var(--red)">*</span> are required.</p>
+ 
+    <form id="bookingForm" novalidate aria-label="Court booking form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">Full Name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="fullName" name="fullName" class="form-control"
+            placeholder="e.g. Arun Kumar"
+            required autocomplete="name"
+            aria-required="true" aria-describedby="fullName-error">
+          <span class="field-error" id="fullName-error" role="alert">Please enter your full name.</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="phone" name="phone" class="form-control"
+            placeholder="+91 98765 43210"
+            required autocomplete="tel"
+            pattern="[0-9+\s\-]{10,14}"
+            aria-required="true" aria-describedby="phone-error">
+          <span class="field-error" id="phone-error" role="alert">Please enter a valid 10-digit phone number.</span>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control"
+          placeholder="you@example.com"
+          autocomplete="email"
+          aria-describedby="email-error email-note">
+        <span class="field-error" id="email-error" role="alert">Please enter a valid email address.</span>
+        <p class="form-note" id="email-note">Optional — used to send booking receipt.</p>
+      </div>
+ 
+      <div class="form-group">
+        <label for="sport">Sport <span class="req" aria-hidden="true">*</span></label>
+        <select id="sport" name="sport" class="form-control" required aria-required="true" aria-describedby="sport-error">
+          <option value="">Choose a sport</option>
+          <option value="cricket">Cricket</option>
+          <option value="football-5">Football (5-a-side)</option>
+          <option value="football-7">Football (7-a-side)</option>
+          <option value="volleyball">Volleyball</option>
+        </select>
+        <span class="field-error" id="sport-error" role="alert">Please select a sport.</span>
+      </div>
+ 
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bookDate">Date <span class="req" aria-hidden="true">*</span></label>
+          <input type="date" id="bookDate" name="bookDate" class="form-control"
+            required aria-required="true" aria-describedby="date-error">
+          <span class="field-error" id="date-error" role="alert">Please select a valid future date.</span>
+        </div>
+        <div class="form-group">
+          <label for="timeSlot">Time Slot <span class="req" aria-hidden="true">*</span></label>
+          <select id="timeSlot" name="timeSlot" class="form-control" required aria-required="true" aria-describedby="time-error">
+            <option value="">Choose a time</option>
+            <optgroup label="Morning (₹800/hr)">
+              <option value="6:00 AM">6:00 AM</option>
+              <option value="8:00 AM">8:00 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+            </optgroup>
+            <optgroup label="Afternoon (₹1000/hr)">
+              <option value="12:00 PM">12:00 PM</option>
+            </optgroup>
+            <optgroup label="Evening (₹1200/hr)">
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+              <option value="6:00 PM">6:00 PM</option>
+            </optgroup>
+            <optgroup label="Night (₹1500/hr)">
+              <option value="8:00 PM">8:00 PM</option>
+              <option value="10:00 PM">10:00 PM</option>
+            </optgroup>
+          </select>
+          <span class="field-error" id="time-error" role="alert">Please select a time slot.</span>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label for="players">Number of Players <span class="req" aria-hidden="true">*</span></label>
+        <input type="number" id="players" name="players" class="form-control"
+          placeholder="e.g. 10" min="1" max="22"
+          required aria-required="true" aria-describedby="players-error players-note">
+        <span class="field-error" id="players-error" role="alert">Please enter a valid number of players (1–22).</span>
+        <p class="form-note" id="players-note">Cricket: up to 22 · Football: up to 14 · Volleyball: up to 12</p>
+      </div>
+ 
+      <button type="submit" class="submit-btn" id="submitBtn">
+        Confirm Booking →
+      </button>
+      <p class="submit-note">By booking you agree to our <a href="#" style="color:var(--green-mid)">Terms of Use</a> and <a href="#" style="color:var(--green-mid)">Refund Policy</a>.</p>
+    </form>
+  </section>
+</div>
+
+<!-- Success Modal -->
+<div class="success-overlay" id="successOverlay" role="dialog" aria-modal="true" aria-labelledby="success-title" aria-describedby="success-desc">
+  <div class="success-modal">
+    <span class="success-icon" aria-hidden="true">🎉</span>
+    <h2 id="success-title">Booking Confirmed!</h2>
+    <p id="success-desc">Thank you for choosing Vadivasal Turf. Your slot is reserved — confirmation details will be sent to your WhatsApp shortly.</p>
+    <div class="success-details" id="successDetails" aria-label="Booking summary">
+      <!-- filled by JS -->
+    </div>
+    <button class="close-btn" id="closeModal">See You on the Field!</button>
+  </div>
+</div>
+</section>
+
 <!-- ── STATS ── -->
 <section id="stats">
   <div class="stats-grid" id="statsGrid">
