@@ -15,26 +15,42 @@
 
   <style>
     :root {
-      --primary: #1a472a;
-      --primary-light: #2d6a42;
-      --gold: #c9a84c;
-      --gold-light: #e0c070;
-      --gold-dim: rgba(201,168,76,0.15);
-      --dark: #0a0a0a;
-      --dark2: #111111;
-      --dark3: #181818;
-      --cream: #f5f0e8;
-      --cream2: #ede7d9;
+      --primary: #050505;
+      --primary-light: #0B0B0B;
+      --gold: #C9A65C;
+      --gold-light: #e3be75;
+      --gold-dim: rgba(201, 166, 92, 0.15);
+      --dark: #050505;
+      --dark2: #0B0B0B;
+      --dark3: #111111;
+      --cream: #F5F1E8;
+      --cream2: #e8e3d8;
       --white: #ffffff;
       --gray: #888888;
       --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Poppins', sans-serif;
+      --font-sans: 'DM Sans', 'Poppins', sans-serif;
       --transition: cubic-bezier(0.76, 0, 0.24, 1);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; max-width: 100%; }
+
+    /* Layout Utilities */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+    
+    section {
+      padding: 96px 0;
+      background: var(--dark);
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+    }
 
     body {
       background: var(--dark);
@@ -1975,81 +1991,83 @@
   }
 </style>
 <section id="sports" class="arena-section">
-  <div class="arena-header">
-    <div class="arena-subtitle">
-      <span class="line"></span> OUR ARENAS <span class="line"></span>
+  <div class="container">
+    <div class="arena-header">
+      <div class="arena-subtitle">
+        <span class="line"></span> OUR ARENAS <span class="line"></span>
+      </div>
+      <h2>Select Your <span class="gold-text">Playing Experience</span></h2>
+      <p>World-class playing surfaces designed for every sport.</p>
     </div>
-    <h2>Select Your <span class="gold-text">Playing Experience</span></h2>
-    <p>World-class playing surfaces designed for every sport.</p>
-  </div>
 
-  <div class="arena-grid">
-    <!-- Cricket -->
-    <div class="arena-card" onclick="location.href='#booking'">
-      <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100');"></div>
-      <div class="arena-card-overlay"></div>
-      <div class="arena-number">01</div>
-      <div class="arena-content">
-        <div class="arena-tag">ARENA</div>
-        <h3>Cricket</h3>
-        
-        <div class="arena-bottom">
-          <a href="#booking" class="arena-btn">BOOK CRICKET ARENA &rarr;</a>
-          <div class="arena-icon-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 9.5L19 5l-4-4-4.5 4.5M10 14L3 21l3 3 7-7"/></svg>
+    <div class="arena-grid">
+      <!-- Cricket -->
+      <div class="arena-card" onclick="location.href='#booking'">
+        <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="arena-card-overlay"></div>
+        <div class="arena-number">01</div>
+        <div class="arena-content">
+          <div class="arena-tag">ARENA</div>
+          <h3>Cricket</h3>
+          
+          <div class="arena-bottom">
+            <a href="#booking" class="arena-btn">BOOK CRICKET ARENA &rarr;</a>
+            <div class="arena-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 9.5L19 5l-4-4-4.5 4.5M10 14L3 21l3 3 7-7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Football -->
+      <div class="arena-card" onclick="location.href='#booking'">
+        <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="arena-card-overlay"></div>
+        <div class="arena-number">02</div>
+        <div class="arena-content">
+          <div class="arena-tag">ARENA</div>
+          <h3>Football</h3>
+          
+          <div class="arena-bottom">
+            <a href="#booking" class="arena-btn">BOOK FOOTBALL ARENA &rarr;</a>
+            <div class="arena-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Volleyball -->
+      <div class="arena-card" onclick="location.href='#booking'">
+        <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="arena-card-overlay"></div>
+        <div class="arena-number">03</div>
+        <div class="arena-content">
+          <div class="arena-tag">ARENA</div>
+          <h3>Volleyball</h3>
+          
+          <div class="arena-bottom">
+            <a href="#booking" class="arena-btn">BOOK VOLLEYBALL ARENA &rarr;</a>
+            <div class="arena-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2C8 6 8 18 12 22M12 2c4 4 4 16 12 22M2 12h20"/></svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Football -->
-    <div class="arena-card" onclick="location.href='#booking'">
-      <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100');"></div>
-      <div class="arena-card-overlay"></div>
-      <div class="arena-number">02</div>
-      <div class="arena-content">
-        <div class="arena-tag">ARENA</div>
-        <h3>Football</h3>
-        
-        <div class="arena-bottom">
-          <a href="#booking" class="arena-btn">BOOK FOOTBALL ARENA &rarr;</a>
-          <div class="arena-icon-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"/></svg>
-          </div>
+    <div class="arena-ready-banner">
+      <div class="arena-ready-left">
+        <div class="arena-ready-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h4>Ready to Play?</h4>
+          <p>Book your arena and experience the best sports venue in Salem.</p>
         </div>
       </div>
+      <a href="#booking" class="arena-ready-btn">VIEW SCHEDULE &rarr;</a>
     </div>
-
-    <!-- Volleyball -->
-    <div class="arena-card" onclick="location.href='#booking'">
-      <div class="arena-card-bg" style="background-image: url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=100');"></div>
-      <div class="arena-card-overlay"></div>
-      <div class="arena-number">03</div>
-      <div class="arena-content">
-        <div class="arena-tag">ARENA</div>
-        <h3>Volleyball</h3>
-        
-        <div class="arena-bottom">
-          <a href="#booking" class="arena-btn">BOOK VOLLEYBALL ARENA &rarr;</a>
-          <div class="arena-icon-circle">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2C8 6 8 18 12 22M12 2c4 4 4 16 12 22M2 12h20"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="arena-ready-banner">
-    <div class="arena-ready-left">
-      <div class="arena-ready-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </div>
-      <div>
-        <h4>Ready to Play?</h4>
-        <p>Book your arena and experience the best sports venue in Salem.</p>
-      </div>
-    </div>
-    <a href="#booking" class="arena-ready-btn">VIEW SCHEDULE &rarr;</a>
   </div>
 </section>
 
@@ -2347,18 +2365,108 @@
 </section>
 
 <!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-top">
+<style>
+.footer-premium {
+  background: var(--dark2);
+  border-top: 1px solid rgba(201, 166, 92, 0.15);
+  padding: 80px 20px 40px;
+  color: var(--cream);
+  font-family: var(--font-sans);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1280px;
+  margin: 0 auto 60px;
+}
+.footer-brand h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer-brand h3 span { color: var(--gold); }
+.footer-brand p {
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  max-width: 300px;
+}
+.social-links { display: flex; gap: 1rem; }
+.social-links a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.social-links a:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+
+.footer-col h5 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+.footer-col h5::after {
+  content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--gold);
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 1rem; }
+.footer-col ul a {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.footer-col ul a:hover { color: var(--gold); transform: translateX(5px); }
+.footer-hours-premium li {
+  display: flex; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 0.8rem; margin-bottom: 0.8rem;
+  font-size: 0.9rem; color: #a0a0a0;
+}
+.footer-hours-premium li span:last-child { color: #fff; font-weight: 500; }
+.footer-bottom-premium {
+  max-width: 1280px; margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 30px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 20px;
+  font-size: 0.85rem; color: #888;
+}
+.footer-bottom-links-premium a {
+  color: #888; text-decoration: none; margin-left: 20px; transition: color 0.3s;
+}
+.footer-bottom-links-premium a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom-premium { flex-direction: column; text-align: center; }
+  .footer-bottom-links-premium a { margin: 0 10px; }
+}
+</style>
+
+<footer class="footer-premium">
+  <div class="footer-grid">
     <div class="footer-brand">
-      <div class="nav-logo">
-        VADIVASAL
-        <span>Premium Sports Turf • Salem</span>
-      </div>
-      <p>Salem's finest sports turf, built for athletes who demand the best. Play harder, play smarter.</p>
-      <div class="footer-social">
-        <a href="#" class="social-icon" aria-label="Facebook">f</a>
-        <a href="#" class="social-icon" aria-label="Instagram">in</a>
-        <a href="#" class="social-icon" aria-label="YouTube">▶</a>
+      <h3>VADIVASAL <span>TURF</span></h3>
+      <p>Salem's premium sports destination, built for athletes who demand the very best. Play harder, play smarter.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">in</a>
+        <a href="#" aria-label="YouTube">▶</a>
       </div>
     </div>
 
@@ -2367,38 +2475,36 @@
       <ul>
         <li><a href="#hero">Home</a></li>
         <li><a href="booking.html" style="color: var(--gold);">Book Now</a></li>
-      <li><a href="#about">About Us</a></li>
-        <li><a href="#sports">Sports</a></li>
-        <li><a href="#booking">Book a Court</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#sports">Arenas</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h5>Sports</h5>
+      <h5>Our Arenas</h5>
       <ul>
-        <li><a href="#sports">Cricket</a></li>
+        <li><a href="#sports">Cricket Arena</a></li>
         <li><a href="#sports">Football (5-a-side)</a></li>
         <li><a href="#sports">Football (7-a-side)</a></li>
-        <li><a href="#sports">Volleyball</a></li>
+        <li><a href="#sports">Volleyball Court</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h5>Opening Hours</h5>
-      <ul class="footer-hours">
-        <li><span>Morning</span><span class="open-now">6:00 AM – 12:00 PM</span></li>
+      <ul class="footer-hours-premium">
+        <li><span>Morning</span><span>6:00 AM – 12:00 PM</span></li>
         <li><span>Afternoon</span><span>12:00 PM – 6:00 PM</span></li>
         <li><span>Evening</span><span>6:00 PM – 12:00 AM</span></li>
-        <li><span>Status</span><span class="open-now">Open Now ●</span></li>
+        <li><span>Status</span><span style="color: var(--gold);">Open Now ●</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="footer-bottom">
+  <div class="footer-bottom-premium">
     <p>© 2024 Vadivasal Turf, Salem. All rights reserved.</p>
-    <div class="footer-bottom-links">
+    <div class="footer-bottom-links-premium">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
       <a href="#">Refund Policy</a>
