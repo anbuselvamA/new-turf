@@ -611,7 +611,7 @@
     .sport-card {
       position: relative;
       height: auto;
-      min-height: 260px;
+      min-height: 140px;
       overflow: hidden;
       cursor: auto;
       border: 1px solid rgba(201,168,76,0.08);
@@ -625,21 +625,15 @@
 
     /* Cricket */
     .sport-card-cricket .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 30% 50%, rgba(26,71,42,0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #0a1f10 0%, #0d2820 40%, #0a1510 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop') center/cover;
     }
     /* Football */
     .sport-card-football .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 70% 50%, rgba(20,60,35,0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #081510 0%, #112018 40%, #080e08 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518605368461-1ee1252329b3?q=80&w=800&auto=format&fit=crop') center/cover;
     }
     /* Volleyball */
     .sport-card-volleyball .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 50% 30%, rgba(30,80,50,0.6) 0%, transparent 60%),
-        linear-gradient(135deg, #0c1a0e 0%, #162b1e 40%, #0a1510 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=800&auto=format&fit=crop') center/cover;
     }
 
     .sport-card-overlay {
@@ -1214,7 +1208,7 @@
     }
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 5rem;
       align-items: center;
     }
@@ -1513,10 +1507,11 @@
       #sports { padding: 8rem 0; }
       
       .form-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       
-      .sport-card { height: 280px; min-height: auto; }
+      .sport-card { height: 180px; min-height: auto; }
       .sport-card-content { flex-direction: row; align-items: center; justify-content: space-between; padding: 0 4rem; }
       .sport-card-right { transform: translateX(30px); opacity: 0; align-items: flex-end; }
       .sport-card:hover .sport-card-right { transform: translateX(0); opacity: 1; }
@@ -1729,6 +1724,55 @@
   .bk-theme .success-modal { padding: 2rem 1.5rem; }
 }
 
+/* ── MOBILE UI TWEAKS ── */
+@media (max-width: 768px) {
+  /* 1. Navbar solid black and hide brand name on mobile */
+  #navbar { background: var(--dark2) !important; padding: 1rem 5% !important; justify-content: flex-end !important; }
+  .sf-brand { display: none !important; }
+
+  /* 2. Hero photo and content moved down to a black gradient area */
+  .sf-hero { align-items: flex-end !important; padding-top: 0 !important; padding-bottom: 8vh !important; }
+  .sf-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; background: linear-gradient(to top, var(--dark2) 0%, transparent 100%); z-index: 2; }
+  .hero-content { z-index: 3 !important; position: relative; }
+  .sf-hero-bg { background-position: center bottom !important; }
+
+  /* 3. Hide location box / map in contact section */
+  #contactRight, .contact-map { display: none !important; }
+  .contact-grid { grid-template-columns: 1fr !important; }
+
+  /* 4. Horizontal swipe for reviews */
+  .testi-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem !important;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .testi-grid::-webkit-scrollbar { display: none; }
+  .testi-card {
+    width: 85vw !important;
+    min-width: 85vw !important;
+    max-width: 85vw !important;
+    flex: 0 0 85vw !important;
+    scroll-snap-align: center;
+    white-space: normal !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .testi-text {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  /* 5. Reduce Arena Card Size on Mobile */
+  .arena-card {
+    height: 300px !important;
+  }
+}
 </style>
 </head>
 <body>

@@ -595,7 +595,7 @@
     .sport-card {
       position: relative;
       height: auto;
-      min-height: 260px;
+      min-height: 140px;
       overflow: hidden;
       cursor: auto;
       border: 1px solid rgba(201,168,76,0.08);
@@ -609,21 +609,15 @@
 
     /* Cricket */
     .sport-card-cricket .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 30% 50%, rgba(26,71,42,0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #0a1f10 0%, #0d2820 40%, #0a1510 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop') center/cover;
     }
     /* Football */
     .sport-card-football .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 70% 50%, rgba(20,60,35,0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #081510 0%, #112018 40%, #080e08 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518605368461-1ee1252329b3?q=80&w=800&auto=format&fit=crop') center/cover;
     }
     /* Volleyball */
     .sport-card-volleyball .sport-card-bg {
-      background:
-        radial-gradient(ellipse at 50% 30%, rgba(30,80,50,0.6) 0%, transparent 60%),
-        linear-gradient(135deg, #0c1a0e 0%, #162b1e 40%, #0a1510 100%);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=800&auto=format&fit=crop') center/cover;
     }
 
     .sport-card-overlay {
@@ -1198,7 +1192,7 @@
     }
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 5rem;
       align-items: center;
     }
@@ -1497,10 +1491,11 @@
       #sports { padding: 8rem 0; }
       
       .form-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       
-      .sport-card { height: 280px; min-height: auto; }
+      .sport-card { height: 180px; min-height: auto; }
       .sport-card-content { flex-direction: row; align-items: center; justify-content: space-between; padding: 0 4rem; }
       .sport-card-right { transform: translateX(30px); opacity: 0; align-items: flex-end; }
       .sport-card:hover .sport-card-right { transform: translateX(0); opacity: 1; }
@@ -1946,16 +1941,8 @@
       <div class="sport-card-bg"></div>
       <div class="sport-card-overlay"></div>
       <div class="sport-deco">🏏</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">01 / Cricket</div>
-          <div class="sport-card-name">Cricket</div>
-          <div class="sport-card-detail">Full-length pitch · Batting nets · Floodlit · Up to 22 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Available All Day</span>
-        </div>
+      <div class="sport-card-content" style="align-items: center; justify-content: center;">
+        <div class="sport-card-name" style="margin: 0; text-align: center; font-size: 3rem;">Cricket</div>
       </div>
     </div>
 
@@ -1964,16 +1951,8 @@
       <div class="sport-card-bg"></div>
       <div class="sport-card-overlay"></div>
       <div class="sport-deco">⚽</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">02 / Football</div>
-          <div class="sport-card-name">Football</div>
-          <div class="sport-card-detail">5-a-side · 7-a-side · FIFA turf · Goals included · Scoreboard</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Most Popular</span>
-        </div>
+      <div class="sport-card-content" style="align-items: center; justify-content: center;">
+        <div class="sport-card-name" style="margin: 0; text-align: center; font-size: 3rem;">Football</div>
       </div>
     </div>
 
@@ -1982,16 +1961,8 @@
       <div class="sport-card-bg"></div>
       <div class="sport-card-overlay"></div>
       <div class="sport-deco">🏐</div>
-      <div class="sport-card-content">
-        <div class="sport-card-left">
-          <div class="sport-card-num">03 / Volleyball</div>
-          <div class="sport-card-name">Volleyball</div>
-          <div class="sport-card-detail">Regulation net · Sand & turf court · Up to 12 players</div>
-        </div>
-        <div class="sport-card-right">
-          <a href="#booking" class="sport-book-btn">Book This Sport</a>
-          <span class="sport-tag">Great for Teams</span>
-        </div>
+      <div class="sport-card-content" style="align-items: center; justify-content: center;">
+        <div class="sport-card-name" style="margin: 0; text-align: center; font-size: 3rem;">Volleyball</div>
       </div>
     </div>
   </div>
